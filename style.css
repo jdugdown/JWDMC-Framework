@@ -1,0 +1,130 @@
+/*
+Theme Name: JWDMC Framework
+Theme URI: http://www.jenniferwebdesignlasvegas.com
+Description: A blank, development-ready WordPress theme based on Bootstrap.
+Version: 1.0.0
+Author: Jennifer Web Design
+Author URI: http://www.jenniferwebdesignlasvegas.com
+Tags: 
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+/*************************************************
+				COMMON
+*************************************************/
+body {
+	font-size: 16px;
+	line-height: 1.25;
+}
+.thumbnail {
+	display: inline-block;
+}
+
+
+
+
+
+/*************************************************
+				HEADER
+*************************************************/
+.navbar {
+	border-radius: 0;
+}
+.navbar-default {
+	border-color: #fff;
+	background-color: #fff;
+}
+.navbar .navbar-toggle {
+	margin: 0;
+	padding: 18px 15px;
+	border: 0;
+	border-radius: 0;
+}
+.navbar .navbar-toggle .icon-bar {
+	border-radius: 0;
+}
+
+
+
+
+
+/*************************************************
+				FOOTER
+*************************************************/
+.footer-left,
+.footer-right {
+	text-align: center;
+}
+
+
+
+
+
+/*************************************************
+				HOMEPAGE
+*************************************************/
+
+
+
+
+
+/*************************************************
+				XXXXXXXXXX
+*************************************************/
+/*************************************************
+				XXXXXXXXXX
+*************************************************/
+/*************************************************
+				XXXXXXXXXX
+*************************************************/
+/*************************************************
+				XXXXXXXXXX
+*************************************************/
+/*************************************************
+				XXXXXXXXXX
+*************************************************/
+
+
+
+
+
+/*************************************************
+				IE FIXES
+*************************************************/
+a img,
+img {
+	outline: none;
+}
+
+
+
+
+
+/*************************************************
+				MEDIA QUERIES
+*************************************************/
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+	.footer-left {
+		text-align: left;
+	}
+	.footer-right {
+		text-align: right;
+	}
+}
+
+@media (min-width: 1200px) {
+}
+
+@media print {
+	.navbar a[href]:after,
+	nav a[href]:after,
+	p.meta a[href]:after,
+	h1 a[href]:after {
+		content: none !important;
+	}
+}

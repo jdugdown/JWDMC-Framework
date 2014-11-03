@@ -1,0 +1,503 @@
+#comments {
+	line-height: 24px;
+	margin-bottom: 18px;
+}
+ol.commentlist,
+ol.commentlist ul.children {
+	padding-left: 0;
+	list-style-type: none;
+}
+.comment .vcard > div {
+	margin-top: 8px;
+	padding: 0 10px 10px;
+}
+ol.commentlist time {
+	font-size: .8em;
+	color: #eee;
+}
+ol.commentlist div.comment-author {
+	position: relative;
+}
+ol.commentlist a.comment-edit-link {
+	padding-left: 5px;
+	text-decoration: none;
+	color: #333;
+}
+ol.commentlist span.edit-comment {
+	position: absolute;
+	top: 8px;
+	right: 0;
+}
+ol.commentlist li.bypostauthor {
+	background-color: #ddd;
+}
+ol.commentlist ul.children li {
+	background-color: #ccc;
+}
+ol.commentlist ul.children li ul.children li {
+	background-color: #bbb;
+}
+ol.commentlist ul.children li ul.children li ul.children li {
+	background-color: #aaa;
+}
+ol.commentlist article {
+	border-bottom: none !important;
+}
+a.comment-reply-link {
+	font-size: 14px;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	line-height: 1.5;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	padding: 5px 10px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #fff;
+	border: 1px solid transparent;
+	border-color: #4cae4c;
+	border-radius: 4px;
+	border-radius: 3px;
+	background-color: #5cb85c;
+	background-image: none;
+
+	     -o-user-select: none;
+}
+a.comment-reply-link:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+a.comment-reply-link:hover,
+a.comment-reply-link:focus {
+	text-decoration: none;
+	color: #333;
+}
+a.comment-reply-link:active,
+a.comment-reply-link.active {
+	outline: 0;
+	background-image: none;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+a.comment-reply-link.disabled,
+a.comment-reply-link[disabled],
+fieldset[disabled] a.comment-reply-link {
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity: .65;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+
+	filter: alpha(opacity=65);
+}
+a.comment-reply-link:hover,
+a.comment-reply-link:focus,
+a.comment-reply-link:active,
+a.comment-reply-link.active,
+.open .dropdown-togglea.comment-reply-link {
+	color: #fff;
+	border-color: #398439;
+	background-color: #47a447;
+}
+a.comment-reply-link:active,
+a.comment-reply-link.active,
+.open .dropdown-togglea.comment-reply-link {
+	background-image: none;
+}
+a.comment-reply-link.disabled,
+a.comment-reply-link[disabled],
+fieldset[disabled] a.comment-reply-link,
+a.comment-reply-link.disabled:hover,
+a.comment-reply-link[disabled]:hover,
+fieldset[disabled] a.comment-reply-link:hover,
+a.comment-reply-link.disabled:focus,
+a.comment-reply-link[disabled]:focus,
+fieldset[disabled] a.comment-reply-link:focus,
+a.comment-reply-link.disabled:active,
+a.comment-reply-link[disabled]:active,
+fieldset[disabled] a.comment-reply-link:active,
+a.comment-reply-link.disabled.active,
+a.comment-reply-link[disabled].active,
+fieldset[disabled] a.comment-reply-link.active {
+	border-color: #4cae4c;
+	background-color: #5cb85c;
+}
+a.comment-reply-link .badge {
+	color: #5cb85c;
+	background-color: #fff;
+}
+#cancel-comment-reply-link {
+	font-size: 14px;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	line-height: 1.5;
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 1em;
+	padding: 6px 12px;
+	padding: 1px 5px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #fff;
+	border: 1px solid transparent;
+	border-color: #eea236;
+	border-radius: 4px;
+	border-radius: 3px;
+	background-color: #f0ad4e;
+	background-image: none;
+
+	     -o-user-select: none;
+}
+#cancel-comment-reply-link:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+#cancel-comment-reply-link:hover,
+#cancel-comment-reply-link:focus {
+	text-decoration: none;
+	color: #333;
+}
+#cancel-comment-reply-link:active,
+#cancel-comment-reply-link.active {
+	outline: 0;
+	background-image: none;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+#cancel-comment-reply-link.disabled,
+#cancel-comment-reply-link[disabled],
+fieldset[disabled] #cancel-comment-reply-link {
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity: .65;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+
+	filter: alpha(opacity=65);
+}
+#cancel-comment-reply-link:hover,
+#cancel-comment-reply-link:focus,
+#cancel-comment-reply-link:active,
+#cancel-comment-reply-link.active,
+.open .dropdown-toggle#cancel-comment-reply-link {
+	color: #fff;
+	border-color: #d58512;
+	background-color: #ed9c28;
+}
+#cancel-comment-reply-link:active,
+#cancel-comment-reply-link.active,
+.open .dropdown-toggle#cancel-comment-reply-link {
+	background-image: none;
+}
+#cancel-comment-reply-link.disabled,
+#cancel-comment-reply-link[disabled],
+fieldset[disabled] #cancel-comment-reply-link,
+#cancel-comment-reply-link.disabled:hover,
+#cancel-comment-reply-link[disabled]:hover,
+fieldset[disabled] #cancel-comment-reply-link:hover,
+#cancel-comment-reply-link.disabled:focus,
+#cancel-comment-reply-link[disabled]:focus,
+fieldset[disabled] #cancel-comment-reply-link:focus,
+#cancel-comment-reply-link.disabled:active,
+#cancel-comment-reply-link[disabled]:active,
+fieldset[disabled] #cancel-comment-reply-link:active,
+#cancel-comment-reply-link.disabled.active,
+#cancel-comment-reply-link[disabled].active,
+fieldset[disabled] #cancel-comment-reply-link.active {
+	border-color: #eea236;
+	background-color: #f0ad4e;
+}
+#cancel-comment-reply-link .badge {
+	color: #f0ad4e;
+	background-color: #fff;
+}
+#comment-nav ul {
+	margin: 0;
+	list-style-type: none;
+}
+#comment-form-elements {
+	margin: 0;
+	list-style-type: none;
+}
+.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-comment {
+	margin-bottom: 15px;
+}
+.comment-form-author input,
+.comment-form-email input,
+.comment-form-url input,
+.comment-form-comment input,
+.comment-form-author textarea,
+.comment-form-email textarea,
+.comment-form-url textarea,
+.comment-form-comment textarea {
+	font-size: 14px;
+	line-height: 1.428571429;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	vertical-align: middle;
+	color: #555;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	background-image: none;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.comment-form-author input:focus,
+.comment-form-email input:focus,
+.comment-form-url input:focus,
+.comment-form-comment input:focus,
+.comment-form-author textarea:focus,
+.comment-form-email textarea:focus,
+.comment-form-url textarea:focus,
+.comment-form-comment textarea:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+	        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.comment-form-author input:-moz-placeholder,
+.comment-form-email input:-moz-placeholder,
+.comment-form-url input:-moz-placeholder,
+.comment-form-comment input:-moz-placeholder,
+.comment-form-author textarea:-moz-placeholder,
+.comment-form-email textarea:-moz-placeholder,
+.comment-form-url textarea:-moz-placeholder,
+.comment-form-comment textarea:-moz-placeholder {
+	color: #999;
+}
+.comment-form-author input::-moz-placeholder,
+.comment-form-email input::-moz-placeholder,
+.comment-form-url input::-moz-placeholder,
+.comment-form-comment input::-moz-placeholder,
+.comment-form-author textarea::-moz-placeholder,
+.comment-form-email textarea::-moz-placeholder,
+.comment-form-url textarea::-moz-placeholder,
+.comment-form-comment textarea::-moz-placeholder {
+	opacity: 1;
+	color: #999;
+}
+.comment-form-author input:-ms-input-placeholder,
+.comment-form-email input:-ms-input-placeholder,
+.comment-form-url input:-ms-input-placeholder,
+.comment-form-comment input:-ms-input-placeholder,
+.comment-form-author textarea:-ms-input-placeholder,
+.comment-form-email textarea:-ms-input-placeholder,
+.comment-form-url textarea:-ms-input-placeholder,
+.comment-form-comment textarea:-ms-input-placeholder {
+	color: #999;
+}
+.comment-form-author input::-webkit-input-placeholder,
+.comment-form-email input::-webkit-input-placeholder,
+.comment-form-url input::-webkit-input-placeholder,
+.comment-form-comment input::-webkit-input-placeholder,
+.comment-form-author textarea::-webkit-input-placeholder,
+.comment-form-email textarea::-webkit-input-placeholder,
+.comment-form-url textarea::-webkit-input-placeholder,
+.comment-form-comment textarea::-webkit-input-placeholder {
+	color: #999;
+}
+.comment-form-author input[disabled],
+.comment-form-email input[disabled],
+.comment-form-url input[disabled],
+.comment-form-comment input[disabled],
+.comment-form-author textarea[disabled],
+.comment-form-email textarea[disabled],
+.comment-form-url textarea[disabled],
+.comment-form-comment textarea[disabled],
+.comment-form-author input[readonly],
+.comment-form-email input[readonly],
+.comment-form-url input[readonly],
+.comment-form-comment input[readonly],
+.comment-form-author textarea[readonly],
+.comment-form-email textarea[readonly],
+.comment-form-url textarea[readonly],
+.comment-form-comment textarea[readonly],
+fieldset[disabled] .comment-form-author input,
+fieldset[disabled] .comment-form-email input,
+fieldset[disabled] .comment-form-url input,
+fieldset[disabled] .comment-form-comment input,
+fieldset[disabled] .comment-form-author textarea,
+fieldset[disabled] .comment-form-email textarea,
+fieldset[disabled] .comment-form-url textarea,
+fieldset[disabled] .comment-form-comment textarea {
+	cursor: not-allowed;
+	background-color: #eee;
+}
+textarea.comment-form-author input,
+textarea.comment-form-email input,
+textarea.comment-form-url input,
+textarea.comment-form-comment input,
+textarea.comment-form-author textarea,
+textarea.comment-form-email textarea,
+textarea.comment-form-url textarea,
+textarea.comment-form-comment textarea {
+	height: auto;
+}
+.comment-form-author textarea,
+.comment-form-email textarea,
+.comment-form-url textarea,
+.comment-form-comment textarea {
+	height: auto;
+}
+.form-allowed-tags code {
+	white-space: normal;
+}
+.form-submit input[type='submit'] {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #fff;
+	border: 1px solid transparent;
+	border-color: #357ebd;
+	border-radius: 4px;
+	background-color: #428bca;
+	background-image: none;
+
+	     -o-user-select: none;
+}
+.form-submit input[type='submit']:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+.form-submit input[type='submit']:hover,
+.form-submit input[type='submit']:focus {
+	text-decoration: none;
+	color: #333;
+}
+.form-submit input[type='submit']:active,
+.form-submit input[type='submit'].active {
+	outline: 0;
+	background-image: none;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.form-submit input[type='submit'].disabled,
+.form-submit input[type='submit'][disabled],
+fieldset[disabled] .form-submit input[type='submit'] {
+	cursor: not-allowed;
+	pointer-events: none;
+	opacity: .65;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+
+	filter: alpha(opacity=65);
+}
+.form-submit input[type='submit']:hover,
+.form-submit input[type='submit']:focus,
+.form-submit input[type='submit']:active,
+.form-submit input[type='submit'].active,
+.open .dropdown-toggle.form-submit input[type='submit'] {
+	color: #fff;
+	border-color: #285e8e;
+	background-color: #3276b1;
+}
+.form-submit input[type='submit']:active,
+.form-submit input[type='submit'].active,
+.open .dropdown-toggle.form-submit input[type='submit'] {
+	background-image: none;
+}
+.form-submit input[type='submit'].disabled,
+.form-submit input[type='submit'][disabled],
+fieldset[disabled] .form-submit input[type='submit'],
+.form-submit input[type='submit'].disabled:hover,
+.form-submit input[type='submit'][disabled]:hover,
+fieldset[disabled] .form-submit input[type='submit']:hover,
+.form-submit input[type='submit'].disabled:focus,
+.form-submit input[type='submit'][disabled]:focus,
+fieldset[disabled] .form-submit input[type='submit']:focus,
+.form-submit input[type='submit'].disabled:active,
+.form-submit input[type='submit'][disabled]:active,
+fieldset[disabled] .form-submit input[type='submit']:active,
+.form-submit input[type='submit'].disabled.active,
+.form-submit input[type='submit'][disabled].active,
+fieldset[disabled] .form-submit input[type='submit'].active {
+	border-color: #357ebd;
+	background-color: #428bca;
+}
+.form-submit input[type='submit'] .badge {
+	color: #428bca;
+	background-color: #fff;
+}
+.comment .vcard .avatar {
+	text-align: center;
+}
+.comment .vcard .comment-text {
+	margin-left: 0;
+}
+img.avatar {
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	border-left: 1px solid #ddd;
+}
+ol.commentlist li {
+	padding-right: 10px;
+	background-color: #f0f0f0;
+}
+#pings {
+	margin-bottom: 9px;
+}
+ol.pinglist {
+	margin: 0 0 9px 0;
+	list-style-type: none;
+}
+ol.commentlist #respond {
+	padding: 5px 10px;
+}
+.btn.edit-post {
+	position: absolute;
+	right: 20px;
+	display: none;
+}
+@media (min-width: 992px) {
+	.edit-comment {
+		display: none;
+	}
+	.vcard:hover .edit-comment {
+		display: inline-block;
+	}
+	.comment .vcard .comment-text {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
