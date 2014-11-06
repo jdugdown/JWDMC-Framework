@@ -19,12 +19,12 @@ add_filter('admin_footer_text', 'jwdmc_custom_admin_footer');
 function jwdmc_custom_admin_footer() {
 	echo '<span id="footer-thankyou">Developed by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a></span>.';
 }
-
-// adding it to the admin area
 add_filter('admin_footer_text', 'jwdmc_custom_admin_footer');
 
 // Set content width
 if ( ! isset( $content_width ) ) $content_width = 580;
+
+
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
@@ -87,6 +87,8 @@ function jwdmc_register_sidebars() {
 		));
 
 } // don't touch this bracket!
+
+
 
 /************* COMMENT LAYOUT *********************/
 
@@ -297,6 +299,10 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'bootstrap', get_template_directory_uri() . '/library/css/bootstrap.min.css', array(), '1.0', 'all' );
 		wp_enqueue_style( 'bootstrap' );
 
+		// Flexslider CSS
+		wp_register_style( 'flexslider', get_template_directory_uri() . '/library/css/flexslider.css', array(), '1.0', 'all' );
+		wp_enqueue_style( 'flexslider' );
+
 		if (is_single()) {
 			// Comments CSS
 			wp_register_style( 'comments-style', get_stylesheet_directory_uri() . '/library/css/comments.css', array(), '1.0', 'all' );
@@ -319,6 +325,11 @@ if( !function_exists( "theme_js" ) ) {
 			array('jquery'),
 			'1.2' );
 
+		wp_register_script( 'flexslider',
+			get_template_directory_uri() . '/library/js/flexslider.min.js',
+			array('jquery'),
+			'1.2' );
+
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/library/js/scripts.js',
 			array('jquery'),
@@ -330,6 +341,7 @@ if( !function_exists( "theme_js" ) ) {
 			'1.2' );
 
 		wp_enqueue_script('bootstrap');
+		wp_enqueue_script('flexslider');
 		wp_enqueue_script('jwdmc-scripts');
 		wp_enqueue_script('modernizr');
 

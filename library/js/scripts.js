@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 			if (input.val() == input.attr('placeholder')) {
 				input.val('');
 			}
-		})
+		});
 	});
 
 	$('.alert-message').alert();

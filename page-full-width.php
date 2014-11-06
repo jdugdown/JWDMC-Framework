@@ -21,6 +21,7 @@ Template Name: Full Width Page
 						</header> <!-- end article header -->
 
 						<section class="post_content">
+
 							<?php the_content(); ?>
 
 						</section> <!-- end article section -->
