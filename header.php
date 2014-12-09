@@ -24,7 +24,9 @@
 		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/apple-touch-icon-120x120.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/apple-touch-icon-76x76.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/apple-touch-icon-152x152.png">
-		<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/favicon-196x196.png" sizes="196x196">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/apple-touch-icon-180x180.png">
+		<meta name="apple-mobile-web-app-title" content="JWDMC">
+		<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/favicon-192x192.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/favicon-160x160.png" sizes="160x160">
 		<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/icons/favicon-16x16.png" sizes="16x16">
@@ -33,6 +35,9 @@
 		<meta name="msapplication-TileImage" content="<?php echo get_stylesheet_directory_uri(); ?>/icons/mstile-144x144.png">
 		<meta name="msapplication-config" content="<?php echo get_stylesheet_directory_uri(); ?>/icons/browserconfig.xml">
 		<meta name="application-name" content="JWDMC">
+
+		<!-- theme meta for Android 5.0+ -->
+		<meta name="theme-color" content="#1a1a1a">
 
 		<!-- font awesome -->
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,7 +51,6 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
 	</head>
 
 	<body <?php body_class(); ?>>
