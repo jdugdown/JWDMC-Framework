@@ -406,4 +406,11 @@ function my_login_stylesheet() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
+
+// Keep Yoast meta box at bottom of screen
+function yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
 ?>
