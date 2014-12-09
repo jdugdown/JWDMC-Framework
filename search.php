@@ -2,7 +2,7 @@
 
 			<div id="content" class="clearfix row">
 
-				<div id="main" class="col col-lg-8 clearfix" role="main">
+				<div id="main" class="col-md-8 clearfix" role="main">
 
 					<h1><span><?php _e("Search Results for","jwdmc"); ?>:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 

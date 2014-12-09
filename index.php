@@ -2,9 +2,9 @@
 
 			<div id="content" class="clearfix row">
 
-				<div id="main" class="col-sm-8 clearfix" role="main">
+				<div id="main" class="col-md-8 clearfix" role="main">
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?php while (have_posts()) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
@@ -19,7 +19,9 @@
 						</header> <!-- end article header -->
 
 						<section class="post_content clearfix">
-							<?php the_content( __("Read more &raquo;","jwdmc") ); ?>
+
+							<?php the_excerpt(); ?>
+
 						</section> <!-- end article section -->
 
 						<footer>
@@ -32,10 +34,8 @@
 
 					<?php endwhile; ?>
 
-					<?php if (function_exists('page_navi')) { // if expirimental feature is active ?>
-
+					<?php if (function_exists('page_navi')) { // if feature is active (it should be) ?>
 						<?php page_navi(); // use the page navi function ?>
-
 					<?php } else { // if it is disabled, display regular wp prev & next links ?>
 						<nav class="wp-prev-next">
 							<ul class="pager">
@@ -44,21 +44,6 @@
 							</ul>
 						</nav>
 					<?php } ?>
-
-					<?php else : ?>
-
-					<article id="post-not-found">
-						<header>
-							<h1><?php _e("Not Found", "jwdmc"); ?></h1>
-						</header>
-						<section class="post_content">
-							<p><?php _e("Sorry, but the requested resource was not found on this site.", "jwdmc"); ?></p>
-						</section>
-						<footer>
-						</footer>
-					</article>
-
-					<?php endif; ?>
 
 				</div> <!-- end #main -->
 
