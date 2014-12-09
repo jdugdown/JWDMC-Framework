@@ -1,19 +1,11 @@
-				<div id="sidebar1" class="col-sm-4" role="complementary">
+				<div id="sidebar1" class="col-md-4" role="complementary">
 
 					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
-
 						<?php dynamic_sidebar( 'sidebar1' ); ?>
-
 					<?php else : ?>
-
-						<!-- This content shows up if there are no widgets defined in the backend. -->
-
 						<div class="alert alert-info">
-
 							<p><?php _e("Please activate some widgets","jwdmc"); ?>.</p>
-
 						</div>
-
 					<?php endif; ?>
 
 				</div>
