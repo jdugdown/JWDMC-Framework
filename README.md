@@ -5,6 +5,9 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.4.1
+- Removed default favicon stuff from header.php
+
 ###1.4.0
 - Cleaned up formatting in functions.php
 - Added <code>if</code> statement to register and enqueue flexslider styles and script as they should only be loaded on pages with a flexslider (be sure to update with page IDs during code review)
