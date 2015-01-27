@@ -39,9 +39,6 @@
 		<!-- theme meta for Android 5.0+ -->
 		<meta name="theme-color" content="#1a1a1a">
 
-		<!-- font awesome -->
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
