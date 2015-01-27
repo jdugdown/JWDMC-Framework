@@ -9,10 +9,12 @@ sidebars, comments, ect.
 */
 
 // Get Bones Core Up & Running!
-require_once('library/bones.php');            // core functions (don't remove)
+require_once('library/bones.php'); // don't touch this
+
 
 // Shortcodes
-require_once('library/shortcodes.php');
+require_once('library/shortcodes.php'); // or this
+
 
 // Custom Backend Footer
 add_filter('admin_footer_text', 'jwdmc_custom_admin_footer');
@@ -21,28 +23,21 @@ function jwdmc_custom_admin_footer() {
 }
 add_filter('admin_footer_text', 'jwdmc_custom_admin_footer');
 
+
 // Set content width
 if ( ! isset( $content_width ) ) $content_width = 580;
 
 
-
-/************* THUMBNAIL SIZE OPTIONS *************/
-
 // Thumbnail sizes
-add_image_size( 'jwdmc-featured', 780, 350, true );
-add_image_size( 'jwdmc-featured-home', 970, 311, true);
-add_image_size( 'jwdmc-featured-carousel', 970, 400, true);
+add_image_size( 'jwdmc-featured', 780, 400, true );
 
-
-
-/************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
 function jwdmc_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
 		'name' => 'Main Sidebar',
-		'description' => 'Used on the default and left sidebar page templates.',
+		'description' => 'The default sidebar.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -52,7 +47,7 @@ function jwdmc_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar2',
 		'name' => 'Homepage Sidebar',
-		'description' => 'Used only on the homepage page template.',
+		'description' => 'Used only on the homepage.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -89,9 +84,6 @@ function jwdmc_register_sidebars() {
 } // don't touch this bracket!
 
 
-
-/************* COMMENT LAYOUT *********************/
-
 // Comment Layout
 function jwdmc_comments($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
@@ -123,43 +115,40 @@ function jwdmc_comments($comment, $args, $depth) {
 	<?php
 } // don't remove this bracket!
 
+
 // Display trackbacks/pings callback function
 function list_pings($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 	?>
 	<li id="comment-<?php comment_ID(); ?>"><i class="icon icon-share-alt"></i>&nbsp;<?php comment_author_link(); ?>
-		<?php
+	<?php
+}
 
-	}
 
-	/************* SEARCH FORM LAYOUT *****************/
+// password protected post form
+function custom_password_form() {
+	global $post;
+	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+	$o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
+	' . '<p>' . __( "This post is password protected. To view it please enter your password below:" ,'jwdmc') . '</p>' . '
+	<label for="' . $label . '">' . __( "Password:" ,'jwdmc') . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( "Submit",'jwdmc' ) . '" /></div>
+	</form></div>
+	';
+	return $o;
+}
+add_filter( 'the_password_form', 'custom_password_form' );
 
-	/****************** password protected post form *****/
 
-	add_filter( 'the_password_form', 'custom_password_form' );
-
-	function custom_password_form() {
-		global $post;
-		$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-		$o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
-		' . '<p>' . __( "This post is password protected. To view it please enter your password below:" ,'jwdmc') . '</p>' . '
-		<label for="' . $label . '">' . __( "Password:" ,'jwdmc') . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( "Submit",'jwdmc' ) . '" /></div>
-		</form></div>
-		';
-		return $o;
-	}
-
-	/*********** update standard wp tag cloud widget so it looks better ************/
-
-	add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
-
-	function my_widget_tag_cloud_args( $args ) {
+// update standard wp tag cloud widget so it looks better
+function my_widget_tag_cloud_args( $args ) {
 	$args['number'] = 20; // show less tags
 	$args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
 	$args['smallest'] = 9.75;
 	$args['unit'] = 'px';
 	return $args;
 }
+add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
+
 
 // filter tag clould output so that it can be styled by CSS
 function add_tag_class( $taglinks ) {
@@ -174,18 +163,17 @@ function add_tag_class( $taglinks ) {
 
 	return $taglinks;
 }
-
 add_action( 'wp_tag_cloud', 'add_tag_class' );
 
-add_filter( 'wp_tag_cloud','wp_tag_cloud_filter', 10, 2) ;
-
-function wp_tag_cloud_filter( $return, $args )
-{
+function wp_tag_cloud_filter( $return, $args ) {
 	return '<div id="tag-cloud">' . $return . '</div>';
 }
+add_filter( 'wp_tag_cloud','wp_tag_cloud_filter', 10, 2) ;
+
 
 // Enable shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
+
 
 // Disable jump in 'read more' link
 function remove_more_jump_link( $link ) {
@@ -200,14 +188,15 @@ function remove_more_jump_link( $link ) {
 }
 add_filter( 'the_content_more_link', 'remove_more_jump_link' );
 
-// Remove height/width attributes on images so they can be responsive
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
+// Remove height/width attributes on images so they can be responsive
 function remove_thumbnail_dimensions( $html ) {
 	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
 	return $html;
 }
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+
 
 // Add thumbnail class to thumbnail links
 function add_class_attachment_link( $html ) {
@@ -217,10 +206,11 @@ function add_class_attachment_link( $html ) {
 }
 add_filter( 'wp_get_attachment_link', 'add_class_attachment_link', 10, 1 );
 
-// Menu output mods
-class Bootstrap_walker extends Walker_Nav_Menu{
 
-	function start_el(&$output, $object, $depth = 0, $args = Array(), $current_object_id = 0){
+// Menu output mods
+class Bootstrap_walker extends Walker_Nav_Menu {
+
+	function start_el(&$output, $object, $depth = 0, $args = Array(), $current_object_id = 0) {
 
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -281,7 +271,10 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 	}
 }
 
+
+// Load editor stylesheet
 add_editor_style('editor-style.css');
+
 
 // Add Twitter Bootstrap's standard 'active' class name to the active nav link item
 function add_active_class($classes, $item) {
@@ -292,29 +285,56 @@ function add_active_class($classes, $item) {
 }
 add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
 
+
 // enqueue styles
 if( !function_exists("theme_styles") ) {
 	function theme_styles() {
 		// Bootstrap CSS
-		wp_register_style( 'bootstrap', get_template_directory_uri() . '/library/css/bootstrap.min.css', array(), '1.0', 'all' );
+		wp_register_style( 'bootstrap',
+			get_template_directory_uri() . '/library/css/bootstrap.min.css',
+			array(),
+			'3.3.2',
+			'all' );
 		wp_enqueue_style( 'bootstrap' );
 
-		// Flexslider CSS
-		wp_register_style( 'flexslider', get_template_directory_uri() . '/library/css/flexslider.css', array(), '1.0', 'all' );
-		wp_enqueue_style( 'flexslider' );
+		if ( is_page() ) {
+			// Flexslider CSS
+			wp_register_style( 'flexslider',
+				get_template_directory_uri() . '/library/css/flexslider.css',
+				array(),
+				'2.2.0',
+				'all' );
+			wp_enqueue_style( 'flexslider' );
+		}
 
-		if (is_single()) {
+		if ( is_single() ) {
 			// Comments CSS
-			wp_register_style( 'comments-style', get_stylesheet_directory_uri() . '/library/css/comments.css', array(), '1.0', 'all' );
+			wp_register_style( 'comments-style',
+				get_stylesheet_directory_uri() . '/library/css/comments.css',
+				array(),
+				'1.0.0',
+				'all' );
 			wp_enqueue_style( 'comments-style' );
 		}
 
 		// Theme CSS
-		wp_register_style( 'jwdmc-style', get_stylesheet_directory_uri() . '/style.css', array(), '1.0', 'all' );
+		wp_register_style( 'jwdmc-style',
+			get_stylesheet_directory_uri() . '/style.css',
+			array(),
+			'1.4.0',
+			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
+
+		wp_register_style( 'fontawesome',
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+			array(),
+			'4.3.0',
+			'all' );
+		wp_enqueue_style( 'fontawesome' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
+
 
 // enqueue javascript
 if( !function_exists( "theme_js" ) ) {
@@ -323,27 +343,32 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'bootstrap',
 			get_template_directory_uri() . '/library/js/bootstrap.min.js',
 			array('jquery'),
-			'1.2' );
+			'3.3.2',
+			true );
+		wp_enqueue_script('bootstrap');
 
-		wp_register_script( 'flexslider',
-			get_template_directory_uri() . '/library/js/flexslider.min.js',
-			array('jquery'),
-			'1.2' );
-
-		wp_register_script( 'jwdmc-scripts',
-			get_template_directory_uri() . '/library/js/scripts.js',
-			array('jquery'),
-			'1.2' );
+		if ( is_page() ) {
+			wp_register_script( 'flexslider',
+				get_template_directory_uri() . '/library/js/flexslider.min.js',
+				array('jquery'),
+				'2.2.2',
+				true );
+			wp_enqueue_script('flexslider');
+		}
 
 		wp_register_script(  'modernizr',
 			get_template_directory_uri() . '/library/js/modernizr.full.min.js',
 			array('jquery'),
-			'1.2' );
-
-		wp_enqueue_script('bootstrap');
-		wp_enqueue_script('flexslider');
-		wp_enqueue_script('jwdmc-scripts');
+			'2.8.3',
+			true );
 		wp_enqueue_script('modernizr');
+
+		wp_register_script( 'jwdmc-scripts',
+			get_template_directory_uri() . '/library/js/scripts.js',
+			array('jquery'),
+			'1.4.0',
+			true );
+		wp_enqueue_script('jwdmc-scripts');
 
 	}
 }
