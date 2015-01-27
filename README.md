@@ -5,6 +5,15 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.4.0
+- Cleaned up formatting in functions.php
+- Added <code>if</code> statement to register and enqueue flexslider styles and script as they should only be loaded on pages with a flexslider (be sure to update with page IDs during code review)
+- Moved JS to footer
+- Removed homepage template jumbotron
+- Added basic styling to footer links so they fall inline
+- Updated Bootstrap to v3.3.2
+- Updated FontAwesome to v4.3.0 and moved to functions.php so it can be inserted using <code>wp_head();</code>
+
 ###1.3.0
 - Added .no-gutters class to use on your .row to remove the 15px padding on each side of contained columns
 - Cleaned up scripts.js
