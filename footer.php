@@ -1,29 +1,24 @@
-			<footer id="site-footer" role="contentinfo">
+			<footer id="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
-				<div id="inner-footer" class="clearfix">
-					<div id="widget-footer" class="clearfix row">
-						<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
-						<?php endif; ?>
-						<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
-						<?php endif; ?>
-						<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
-						<?php endif; ?>
+				<div id="widget-footer" class="clearfix row">
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+					<?php endif; ?>
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
+					<?php endif; ?>
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
+					<?php endif; ?>
+				</div>
+
+				<?php jwdmc_footer_links(); // Adjust using Menus in Wordpress Admin ?>
+
+				<div class="row">
+					<div class="col-md-6 col-md-push-6">
+						<p class="footer-right">Developed by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a></p>
 					</div>
-
-					<nav class="clearfix">
-						<?php jwdmc_footer_links(); // Adjust using Menus in Wordpress Admin ?>
-					</nav>
-
-					<div class="row">
-						<div class="col-md-6 col-md-push-6">
-							<p class="footer-right">Developed by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a></p>
-						</div>
-						<div class="col-md-6 col-md-pull-6">
-							<p class="footer-left">&copy; <?php bloginfo('name'); ?></p>
-						</div>
+					<div class="col-md-6 col-md-pull-6">
+						<p class="footer-left">&copy; <?php bloginfo('name'); ?></p>
 					</div>
-
-				</div> <!-- end #inner-footer -->
+				</div>
 
 			</footer> <!-- end footer -->
 

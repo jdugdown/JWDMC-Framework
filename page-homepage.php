@@ -12,27 +12,19 @@ Template Name: Homepage
 
 					<?php while (have_posts()) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+					<div class="page-header">
+						<h1 itemprop="headline"><?php bloginfo('title'); ?></h1>
+					</div>
 
-						<header>
+					<div class="row">
 
-								<div class="page-header"><h1><?php bloginfo('title'); ?></h1></div>
+						<div class="col-sm-8">
+							<?php the_content(); ?>
+						</div>
 
-						</header>
+						<?php get_sidebar('sidebar2'); // sidebar 2 ?>
 
-						<section class="row post_content">
-
-							<div class="col-sm-8">
-
-								<?php the_content(); ?>
-
-							</div>
-
-							<?php get_sidebar('sidebar2'); // sidebar 2 ?>
-
-						</section> <!-- end article header -->
-
-					</article> <!-- end article -->
+					</div>
 
 					<?php endwhile; ?>
 
