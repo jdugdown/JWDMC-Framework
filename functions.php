@@ -312,7 +312,7 @@ if( !function_exists("theme_styles") ) {
 			wp_register_style( 'comments-style',
 				get_stylesheet_directory_uri() . '/library/css/comments.css',
 				array(),
-				'1.0.0',
+				null,
 				'all' );
 			wp_enqueue_style( 'comments-style' );
 		}
@@ -325,12 +325,21 @@ if( !function_exists("theme_styles") ) {
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 
+		// FontAwesome
 		wp_register_style( 'fontawesome',
 			'//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
 			array(),
 			'4.3.0',
 			'all' );
 		wp_enqueue_style( 'fontawesome' );
+
+		// Google Fonts
+		// wp_register_style( 'googlefonts',
+		// 	'...',
+		// 	array(),
+		// 	null,
+		// 	'all' );
+		// wp_enqueue_style( 'googlefonts' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
@@ -437,5 +446,12 @@ function yoasttobottom() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
+
+// change out the default Gravity Forms submit button
+function form_submit_button($button, $form){
+	return "<button class='btn btn-primary' id='gform_submit_button_{$form["id"]}'>Submit</button>";
+}
+add_filter("gform_submit_button", "form_submit_button", 10, 2);
 
 ?>
