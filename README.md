@@ -5,6 +5,16 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.0
+- Updated Bootstrap to v3.3.4
+- Added filter to change the default Gravity Forms submit button into a button element (Thanks Ollie)
+- Fixed footer link spacing (Thanks Ollie)
+- Changed menu containers to <code>nav</code> elements
+- Added code to scripts.js to enable smooth scrolling to a <code>div</code> when linking to its ID
+- Cleaned up several files, removed semantic elements where they were not needed
+- Began adding Schema.org markup where applicable
+- Added screen reader label to hamburger
+
 ###1.4.1
 - Removed default favicon stuff from header.php
 
