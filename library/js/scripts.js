@@ -26,8 +26,22 @@ jQuery(document).ready(function($) {
 		});
 	});
 
+	// bs alert
 	$('.alert-message').alert();
 
+	// bs dropdown
 	$('.dropdown-toggle').dropdown();
+
+	// Smooth scroll to element by ID
+	$('a[href^="#"]').click(function(e) {
+		e.preventDefault();
+
+		var target = this.hash;
+		var $target = $(target);
+
+		$('html, body').stop().animate({
+			'scrollTop': $target.offset().top
+		}, 900, 'swing');
+	});
 
 });
