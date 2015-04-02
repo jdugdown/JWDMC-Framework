@@ -92,7 +92,7 @@ function jwdmc_main_nav() {
 			'menu' => 'main_nav', /* menu name */
 			'menu_class' => 'nav navbar-nav',
 			'theme_location' => 'main_nav', /* where in the theme it's assigned */
-			'container' => 'false', /* container class */
+			'container' => 'nav', /* container element */
 			'fallback_cb' => 'jwdmc_main_nav_fallback', /* menu fallback */
 			// 'depth' => '2',  suppress lower levels for now
 			'walker' => new Bootstrap_walker()
@@ -106,11 +106,13 @@ function jwdmc_footer_links() {
 		array(
 			'menu' => 'footer_links', /* menu name */
 			'theme_location' => 'footer_links', /* where in the theme it's assigned */
+			'container' => 'nav', /* container element */
 			'container_class' => 'footer-links clearfix', /* container class */
 			'fallback_cb' => 'jwdmc_footer_links_fallback' /* menu fallback */
 		)
 	);
 }
+
 
 // this is the fallback for header menu
 function jwdmc_main_nav_fallback() {
