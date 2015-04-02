@@ -6,28 +6,22 @@
 
 					<?php while (have_posts()) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
 						<header>
-
 							<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'jwdmc-featured' ); ?></a>
 
-							<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+							<h1 class="h3"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
-							<p class="meta"><?php _e("Posted", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
-
+							<p class="meta"><?php _e("Posted on", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" itemprop="datePublished" pubdate><?php the_time('F j, Y'); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> &amp; <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
 						</header> <!-- end article header -->
 
 						<section class="post_content clearfix">
-
 							<?php the_excerpt(); ?>
-
 						</section> <!-- end article section -->
 
 						<footer>
-
 							<p class="tags"><?php the_tags('<span class="tags-title">' . __("Tags","jwdmc") . ':</span> ', ' ', ''); ?></p>
-
 						</footer> <!-- end article footer -->
 
 					</article> <!-- end article -->

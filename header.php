@@ -24,15 +24,15 @@
 		<![endif]-->
 	</head>
 
-	<body <?php body_class(); ?>>
+	<body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
-		<header role="banner">
+		<header itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
 
 			<div class="navbar navbar-default">
 				<div class="container">
 
 					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-label="Mobile Menu Toggle">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>

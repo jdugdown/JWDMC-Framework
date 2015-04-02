@@ -1,4 +1,4 @@
-				<div id="sidebar1" class="col-md-4" role="complementary">
+				<div id="sidebar1" class="col-md-4" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 
 					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 						<?php dynamic_sidebar( 'sidebar1' ); ?>
