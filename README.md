@@ -5,6 +5,9 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.1
+- Fixed JS error caused by new smooth scrolling stuff in scripts.js
+
 ###1.5.0
 - Updated Bootstrap to v3.3.4
 - Added filter to change the default Gravity Forms submit button into a button element (Thanks Ollie)
