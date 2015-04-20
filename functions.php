@@ -448,10 +448,21 @@ function yoasttobottom() {
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 
-// change out the default Gravity Forms submit button
+// Change out the default Gravity Forms submit, next, and previous buttons
 function form_submit_button($button, $form){
-	return "<button class='btn btn-primary' id='gform_submit_button_{$form["id"]}'>Submit</button>";
+	return "<button class='btn btn-primary' id='gform_submit_button'>Submit</button>";
 }
 add_filter("gform_submit_button", "form_submit_button", 10, 2);
+
+function form_next_button($button, $form){
+	return "<button class='btn btn-default' id='gform_next_button'>Next</button>";
+}
+add_filter("gform_next_button", "form_next_button", 10, 2);
+
+function form_previous_button($button, $form){
+	return "<button class='btn btn-default' id='gform_previous_button'>Previous</button>";
+}
+add_filter("gform_previous_button", "form_previous_button", 10, 2);
+
 
 ?>
