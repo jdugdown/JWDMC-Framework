@@ -5,6 +5,15 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.2
+- Added filters for Next/Previous buttons in multi-page forms
+- Added WooCommerce theme support declaration, no need to do this manually anymore
+- Fixed column break point issue on a few page templates
+- Updated the default copyright and credit in footer.php to more closely reflect the usual stuff we get from design
+- Added top margin to headings that come after paragraphs
+- Updated editor-style.css for consistency
+- Added rules for 5 even columns
+
 ###1.5.1
 - Fixed JS error caused by new smooth scrolling stuff in scripts.js
 
