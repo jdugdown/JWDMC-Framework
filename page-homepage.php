@@ -18,7 +18,7 @@ Template Name: Homepage
 
 					<div class="row">
 
-						<div class="col-sm-8">
+						<div class="col-md-8">
 							<?php the_content(); ?>
 						</div>
 

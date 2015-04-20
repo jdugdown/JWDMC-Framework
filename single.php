@@ -2,7 +2,7 @@
 
 			<div id="content" class="clearfix row">
 
-				<div id="main" class="col-sm-8 clearfix" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+				<div id="main" class="col-md-8 clearfix" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
