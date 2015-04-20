@@ -1,8 +1,11 @@
-p {
+p,
+ul,
+ol {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 18px;
-	margin: 0 0 9px;
+	margin: 0 0 1px;
+	color: #333;
 }
 p small {
 	font-size: 11px;
@@ -14,8 +17,9 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	margin: 0;
+	margin: 0 0 5px;
 	color: #333;
 	text-rendering: optimizelegibility;
 }
