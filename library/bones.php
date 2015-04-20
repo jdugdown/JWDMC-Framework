@@ -77,6 +77,7 @@ function jwdmc_theme_support() {
 			'footer_links' => 'Footer Links' // secondary nav in footer
 		)
 	);
+	add_theme_support('woocommerce');
 }
 
 // launching this stuff after theme setup
