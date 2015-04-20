@@ -13,10 +13,10 @@
 
 				<div class="row">
 					<div class="col-md-6 col-md-push-6">
-						<p class="footer-right">Developed by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a></p>
+						<p class="footer-right">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.<br class="visible-xs" Site by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a>.</p>
 					</div>
 					<div class="col-md-6 col-md-pull-6">
-						<p class="footer-left">&copy; <?php bloginfo('name'); ?></p>
+						<p class="footer-left">Lorem ipsum dolor sit amet...</p>
 					</div>
 				</div>
 
