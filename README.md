@@ -5,6 +5,9 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.3
+- Updated Flexslider to v2.4.0
+
 ###1.5.2
 - Added filters for Next/Previous buttons in multi-page forms
 - Added WooCommerce theme support declaration, no need to do this manually anymore
