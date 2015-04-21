@@ -297,12 +297,12 @@ if( !function_exists("theme_styles") ) {
 			'all' );
 		wp_enqueue_style( 'bootstrap' );
 
-		if ( is_page() ) {
+		if ( is_front_page() ) {
 			// Flexslider CSS
 			wp_register_style( 'flexslider',
 				get_template_directory_uri() . '/library/css/flexslider.css',
 				array(),
-				'2.2.0',
+				'2.4.0',
 				'all' );
 			wp_enqueue_style( 'flexslider' );
 		}
@@ -356,11 +356,11 @@ if( !function_exists( "theme_js" ) ) {
 			true );
 		wp_enqueue_script('bootstrap');
 
-		if ( is_page() ) {
+		if ( is_front_page() ) {
 			wp_register_script( 'flexslider',
 				get_template_directory_uri() . '/library/js/flexslider.min.js',
 				array('jquery'),
-				'2.2.2',
+				'2.4.0',
 				true );
 			wp_enqueue_script('flexslider');
 		}
