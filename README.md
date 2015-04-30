@@ -5,6 +5,9 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.4
+- Fixed typo in editor-style.css
+
 ###1.5.3
 - Updated Flexslider to v2.4.0
 
