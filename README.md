@@ -5,6 +5,9 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.5.5
+- Reworked filter to change Gravity Forms buttons introduced in v1.5.0
+
 ###1.5.4
 - Fixed typo in editor-style.css
 
