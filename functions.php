@@ -449,20 +449,32 @@ add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 
 // Change out the default Gravity Forms submit, next, and previous buttons
-function form_submit_button($button, $form){
-	return "<button class='btn btn-primary' id='gform_submit_button'>Submit</button>";
+function form_submit_button ($button, $form) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_button button', 'btn btn-primary', $button );
+	$button .= "{$form['button']['text']}</button>";
+	return $button;
 }
-add_filter("gform_submit_button", "form_submit_button", 10, 2);
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 5 );
 
-function form_next_button($button, $form){
-	return "<button class='btn btn-default' id='gform_next_button'>Next</button>";
+function form_next_button ($button, $form) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_next_button button', 'btn btn-default', $button );
+	$button .= 'Next</button>';
+	return $button;
 }
-add_filter("gform_next_button", "form_next_button", 10, 2);
+add_filter( 'gform_next_button', 'form_next_button', 10, 5 );
 
-function form_previous_button($button, $form){
-	return "<button class='btn btn-default' id='gform_previous_button'>Previous</button>";
+function form_previous_button ($button, $form) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_previous_button button', 'btn btn-default', $button );
+	$button .= 'Previous</button>';
+	return $button;
 }
-add_filter("gform_previous_button", "form_previous_button", 10, 2);
+add_filter( 'gform_previous_button', 'form_previous_button', 10, 5 );
 
 
 ?>
