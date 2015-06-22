@@ -5,6 +5,14 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.6.0
+- Updated Bootstrap to v3.3.5
+- Bootstrap files now served via CDN
+- Replaced FlexSlider with [Slick](http://kenwheeler.github.io/slick/)
+- Introduced [TGM Plugin Activation](https://github.com/TGMPA/TGM-Plugin-Activation) to streamline initial setup
+- Moved custom login logo to style-login.css
+- Various bug fixes
+
 ###1.5.5
 - Reworked filter to change Gravity Forms buttons introduced in v1.5.0
 
