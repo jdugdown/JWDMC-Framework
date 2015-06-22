@@ -1,5 +1,4 @@
 <!doctype html>
-
 <!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
@@ -26,7 +25,7 @@
 
 	<body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
-		<header itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
+		<header id="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
 
 			<div class="navbar navbar-default">
 				<div class="container">
@@ -42,7 +41,7 @@
 					</div>
 
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
-						<?php jwdmc_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+						<?php jwdmc_main_nav(); // Adjust using Menus in WordPress Admin ?>
 					</div>
 
 				</div> <!-- end .container -->
