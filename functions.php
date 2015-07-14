@@ -31,105 +31,85 @@ add_image_size( 'jwdmc-featured', 780, 400, true );
 // Sidebars & Widgetizes Areas
 function jwdmc_register_sidebars() {
 	register_sidebar(array(
-		'id' => 'sidebar1',
-		'name' => 'Main Sidebar',
-		'description' => 'The default sidebar.',
+		'id'            => 'sidebar1',
+		'name'          => 'Main Sidebar',
+		'description'   => 'The default sidebar.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
 		));
-
 	register_sidebar(array(
-		'id' => 'sidebar2',
-		'name' => 'Homepage Sidebar',
-		'description' => 'Used only on the homepage.',
+		'id'            => 'Homepage Sidebar',
+		'description'   => 'Used only on the homepage.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
 		));
-
 	register_sidebar(array(
-		'id' => 'footer1',
-		'name' => 'Footer 1',
+		'id'            => 'footer1',
+		'name'          => 'Footer 1',
 		'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
 		));
-
 	register_sidebar(array(
-		'id' => 'footer2',
-		'name' => 'Footer 2',
+		'id'            => 'footer2',
+		'name'          => 'Footer 2',
 		'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
 		));
-
 	register_sidebar(array(
-		'id' => 'footer3',
-		'name' => 'Footer 3',
+		'id'            => 'footer3',
+		'name'          => 'Footer 3',
 		'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
 		));
-
 } // don't touch this bracket!
 
 
-/**
- *
- * @package    TGM-Plugin-Activation
- * @subpackage Example
- * @version    2.4.2
- * @author     Thomas Griffin <thomasgriffinmedia.com>
- * @author     Gary Jones <gamajo.com>
- * @copyright  Copyright (c) 2014, Thomas Griffin
- * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
- */
-
-/**
- * Register the required plugins for this theme.
- */
+// Register the required plugins for this theme.
 function my_theme_register_required_plugins() {
 
 	$plugins = array(
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'Advanced Custom Fields',
-			'slug'      => 'advanced-custom-fields',
-			'required'  => false,
-		),
+			'name'     => 'Advanced Custom Fields',
+			'slug'     => 'advanced-custom-fields',
+			'required' => false,
+			),
 		array(
-			'name'      => 'Wordfence Security',
-			'slug'      => 'wordfence',
-			'required'  => false,
-		),
+			'name'     => 'BruteProtect',
+			'slug'     => 'bruteprotect',
+			'required' => false,
+			),
 		array(
-			'name'      => 'BruteProtect',
-			'slug'      => 'bruteprotect',
-			'required'  => false,
-		),
+			'name'     => 'Regenerate Thumbnails',
+			'slug'     => 'regenerate-thumbnails',
+			'required' => false,
+			),
 		array(
-			'name'      => 'WordPress SEO by Yoast',
-			'slug'      => 'wordpress-seo',
-			'required'  => false,
-		),
-
+			'name'     => 'WooCommerce - excelling eCommerce',
+			'slug'     => 'woocommerce',
+			'required' => false,
+			),
+		array(
+			'name'     => 'Wordfence Security',
+			'slug'     => 'wordfence',
+			'required' => false,
+			),
+		array(
+			'name'     => 'WordPress SEO by Yoast',
+			'slug'     => 'wordpress-seo',
+			'required' => false,
+			),
 	);
 
-	/**
-	 * Array of configuration settings. Amend each line as needed.
-	 * If you want the default strings to be available under your own theme domain,
-	 * leave the strings uncommented.
-	 * Some of the strings are added into a sprintf, so see the comments at the
-	 * end of each line for what each argument will be.
-	 */
 	$config = array(
 		'default_path' => '',                      // Default absolute path to pre-packaged plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
@@ -167,7 +147,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 
 
 // Comment Layout
-function jwdmc_comments($comment, $args, $depth) {
+function jwdmc_comments( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
@@ -180,26 +160,25 @@ function jwdmc_comments($comment, $args, $depth) {
 
 					<?php edit_comment_link(__('Edit','jwdmc'),'<span class="edit-comment btn btn-sm btn-default"><i class="fa fa-pencil"></i>','</span>') ?>
 
-					<?php if ($comment->comment_approved == '0') : ?>
-					<div class="alert-message success">
-						<p><?php _e('Your comment is awaiting moderation.','jwdmc') ?></p>
-					</div>
-				<?php endif; ?>
+					<?php if ( $comment->comment_approved == '0' ) : ?>
+						<div class="alert-message success">
+							<p><?php _e('Your comment is awaiting moderation.','jwdmc') ?></p>
+						</div>
+					<?php endif; ?>
 
-				<?php comment_text() ?>
+					<?php comment_text() ?>
 
-
-				<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+					<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+				</div>
 			</div>
-		</div>
-	</article>
+		</article>
 	<!-- </li> is added by wordpress automatically -->
 	<?php
 } // don't remove this bracket!
 
 
 // Display trackbacks/pings callback function
-function list_pings($comment, $args, $depth) {
+function list_pings( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	?>
 	<li id="comment-<?php comment_ID(); ?>"><i class="icon icon-share-alt"></i>&nbsp;<?php comment_author_link(); ?>
@@ -259,7 +238,7 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 // Disable jump in 'read more' link
 function remove_more_jump_link( $link ) {
-	$offset = strpos($link, '#more-');
+	$offset = strpos( $link, '#more-' );
 	if ( $offset ) {
 		$end = strpos( $link, '"',$offset );
 	}
@@ -339,12 +318,12 @@ class Bootstrap_walker extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $object, $depth, $args );
 	} // end start_el function
 
-	function start_lvl(&$output, $depth = 0, $args = Array()) {
+	function start_lvl( &$output, $depth = 0, $args = Array() ) {
 		$indent = str_repeat("\t", $depth);
 		$output .= "\n$indent<ul class=\"dropdown-menu\">\n";
 	}
 
-	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
+	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
 			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
@@ -359,7 +338,7 @@ add_editor_style('editor-style.css');
 
 
 // Add Twitter Bootstrap's standard 'active' class name to the active nav link item
-function add_active_class($classes, $item) {
+function add_active_class( $classes, $item ) {
 	if( $item->menu_item_parent == 0 && in_array('current-menu-item', $classes) ) {
 		$classes[] = "active";
 	}
@@ -498,7 +477,6 @@ add_filter( 'wp_title', 'framework_wp_title', 10, 2 );
 
 
 // Custom Backend Footer
-add_filter('admin_footer_text', 'jwdmc_custom_admin_footer');
 function jwdmc_custom_admin_footer() {
 	echo '<span id="footer-thankyou">Developed by <a href="http://www.jenniferwebdesignlasvegas.com" target="_blank">Jennifer Web Design</a></span>.';
 }
@@ -517,7 +495,7 @@ function my_login_logo_url_title() {
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 function my_login_stylesheet() { ?>
-<link rel="stylesheet" id="custom_wp_admin_css"  href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/style-login.css'; ?>" type="text/css" media="all" />
+	<link rel="stylesheet" id="custom_wp_admin_css"  href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/style-login.css'; ?>" type="text/css" media="all" />
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
@@ -530,7 +508,7 @@ add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 
 // Change out the default Gravity Forms submit, next, and previous buttons
-function form_submit_button ($button, $form) {
+function form_submit_button( $button, $form ) {
 	$button = str_replace( 'input', 'button', $button );
 	$button = str_replace( '/', '', $button );
 	$button = str_replace( 'gform_button button', 'btn btn-primary', $button );
@@ -539,7 +517,7 @@ function form_submit_button ($button, $form) {
 }
 add_filter( 'gform_submit_button', 'form_submit_button', 10, 5 );
 
-function form_next_button ($button, $form) {
+function form_next_button( $button, $form ) {
 	$button = str_replace( 'input', 'button', $button );
 	$button = str_replace( '/', '', $button );
 	$button = str_replace( 'gform_next_button button', 'btn btn-default', $button );
@@ -548,7 +526,7 @@ function form_next_button ($button, $form) {
 }
 add_filter( 'gform_next_button', 'form_next_button', 10, 5 );
 
-function form_previous_button ($button, $form) {
+function form_previous_button( $button, $form ) {
 	$button = str_replace( 'input', 'button', $button );
 	$button = str_replace( '/', '', $button );
 	$button = str_replace( 'gform_previous_button button', 'btn btn-default', $button );
