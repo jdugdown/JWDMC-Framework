@@ -20,60 +20,47 @@
 						?>
 					</h1>
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-						<header>
+							<header>
+								<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-							<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+								<p class="meta"><?php _e("Posted", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
+							</header> <!-- end article header -->
 
-							<p class="meta"><?php _e("Posted", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
+							<section class="post_content">
+								<?php the_post_thumbnail( 'jwdmc-featured' ); ?>
 
-						</header> <!-- end article header -->
+								<?php the_excerpt(); ?>
+							</section> <!-- end article section -->
 
-						<section class="post_content">
-
-							<?php the_post_thumbnail( 'jwdmc-featured' ); ?>
-
-							<?php the_excerpt(); ?>
-
-						</section> <!-- end article section -->
-
-						<footer>
-
-						</footer> <!-- end article footer -->
-
-					</article> <!-- end article -->
+						</article> <!-- end article -->
 
 					<?php endwhile; ?>
 
-					<?php if (function_exists('page_navi')) { // if expirimental feature is active ?>
-
-						<?php page_navi(); // use the page navi function ?>
-
-					<?php } else { // if it is disabled, display regular wp prev & next links ?>
-						<nav class="wp-prev-next">
-							<ul class="clearfix">
-								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "jwdmc")) ?></li>
-								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "jwdmc")) ?></li>
-							</ul>
-						</nav>
-					<?php } ?>
-
+						<?php if (function_exists('page_navi')) { // if expirimental feature is active ?>
+							<?php page_navi(); // use the page navi function ?>
+						<?php } else { // if it is disabled, display regular wp prev & next links ?>
+							<nav class="wp-prev-next">
+								<ul class="clearfix">
+									<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "jwdmc")) ?></li>
+									<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "jwdmc")) ?></li>
+								</ul>
+							</nav>
+						<?php } ?>
 
 					<?php else : ?>
 
-					<article id="post-not-found">
-						<header>
-							<h1><?php _e("No Posts Yet", "jwdmc"); ?></h1>
-						</header>
-						<section class="post_content">
-							<p><?php _e("Sorry, What you were looking for is not here.", "jwdmc"); ?></p>
-						</section>
-						<footer>
-						</footer>
-					</article>
+						<article id="post-not-found">
+							<header>
+								<h1><?php _e("No Posts Yet", "jwdmc"); ?></h1>
+							</header>
+							<section class="post_content">
+								<p><?php _e("Sorry, What you were looking for is not here.", "jwdmc"); ?></p>
+							</section>
+						</article>
 
 					<?php endif; ?>
 
