@@ -5,6 +5,11 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.7.0
+- Added [WooCommerce](https://wordpress.org/plugins/woocommerce/) and [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) to array of TGM plugins
+- Updated code to more closely follow [WordPress Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards)
+- Removed full width template
+
 ###1.6.0
 - Updated Bootstrap to v3.3.5
 - Bootstrap files now served via CDN
