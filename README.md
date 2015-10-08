@@ -5,6 +5,12 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.7.1
+- Fixed login logo styling
+- Added [Simple 301 Redirects](https://wordpress.org/plugins/simple-301-redirects/) to recommended plugins
+- Removed [BruteProtect](https://wordpress.org/plugins/bruteprotect/) from recommended plugins
+- Updated Slick to v1.5.7
+
 ###1.7.0
 - Added [WooCommerce](https://wordpress.org/plugins/woocommerce/) and [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) to array of TGM plugins
 - Updated code to more closely follow [WordPress Coding Standards](https://codex.wordpress.org/WordPress_Coding_Standards)
@@ -43,7 +49,7 @@ Starter Theme for JWDMC Websites
 - Updated Bootstrap to v3.3.4
 - Added filter to change the default Gravity Forms submit button into a button element (Thanks Ollie)
 - Fixed footer link spacing (Thanks Ollie)
-- Changed menu containers to <code>nav</code> elements
+- Changed menu containers to <code><nav></code> elements
 - Added code to scripts.js to enable smooth scrolling to a <code>div</code> when linking to its ID
 - Cleaned up several files, removed semantic elements where they were not needed
 - Began adding Schema.org markup where applicable
