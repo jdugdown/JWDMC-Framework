@@ -2,7 +2,7 @@
 Theme Name: JWDMC Framework
 Theme URI: http://www.jenniferwebdesignlasvegas.com
 Description: A blank, development-ready WordPress theme based on Bootstrap.
-Version: 1.7.0
+Version: 1.7.1
 Author: Jennifer Web Design
 Author URI: http://www.jenniferwebdesignlasvegas.com
 License: GNU General Public License v2.0
@@ -17,19 +17,29 @@ body {
 	font-size: 16px;
 	line-height: 1.25;
 }
-h1 {
+h1,
+.h1 {
 	font: ;
 	color: ;
 	margin: 0 0 10px;
 	padding: 0;
 }
-h2 {
+h2,
+.h2 {
 	font: ;
 	color: ;
 	margin: 0 0 10px;
 	padding: 0;
 }
-h3 {
+h3,
+.h3 {
+	font: ;
+	color: ;
+	margin: 0 0 10px;
+	padding: 0;
+}
+h4,
+.h4 {
 	font: ;
 	color: ;
 	margin: 0 0 10px;
