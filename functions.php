@@ -84,11 +84,6 @@ function my_theme_register_required_plugins() {
 			'required' => false,
 			),
 		array(
-			'name'     => 'BruteProtect',
-			'slug'     => 'bruteprotect',
-			'required' => false,
-			),
-		array(
 			'name'     => 'Regenerate Thumbnails',
 			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
@@ -106,6 +101,11 @@ function my_theme_register_required_plugins() {
 		array(
 			'name'     => 'WordPress SEO by Yoast',
 			'slug'     => 'wordpress-seo',
+			'required' => false,
+			),
+		array(
+			'name'     => 'Simple 301 Redirects',
+			'slug'     => 'simple-301-redirects',
 			'required' => false,
 			),
 	);
@@ -361,9 +361,9 @@ if( !function_exists("theme_styles") ) {
 		if ( is_front_page() ) {
 			// Slick CSS
 			wp_register_style( 'slick',
-				'//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.css',
+				'//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css',
 				array(),
-				'1.5.5',
+				'1.5.7',
 				'all' );
 			wp_enqueue_style( 'slick' );
 		}
@@ -382,7 +382,7 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'jwdmc-style',
 			get_stylesheet_directory_uri() . '/style.css',
 			array(),
-			'1.6.0',
+			'1.7.1',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 
@@ -418,9 +418,9 @@ if( !function_exists( "theme_js" ) ) {
 
 		if ( is_front_page() ) {
 			wp_register_script( 'slick',
-				'//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.min.js',
+				'//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js',
 				array('jquery'),
-				'1.5.5',
+				'1.5.7',
 				true );
 			wp_enqueue_script('slick');
 		}
@@ -435,7 +435,7 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/library/js/scripts.js',
 			array('jquery'),
-			'1.6.0',
+			'1.7.1',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}
