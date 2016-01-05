@@ -352,18 +352,18 @@ if( !function_exists("theme_styles") ) {
 	function theme_styles() {
 		// Bootstrap CSS
 		wp_register_style( 'bootstrap',
-			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
+			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
 			array(),
-			'3.3.5',
+			'3.3.6',
 			'all' );
 		wp_enqueue_style( 'bootstrap' );
 
 		if ( is_front_page() ) {
 			// Slick CSS
 			wp_register_style( 'slick',
-				'//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css',
+				'//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css',
 				array(),
-				'1.5.7',
+				'1.5.9',
 				'all' );
 			wp_enqueue_style( 'slick' );
 		}
@@ -382,15 +382,15 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'jwdmc-style',
 			get_stylesheet_directory_uri() . '/style.css',
 			array(),
-			'1.7.1',
+			'1.7.2',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 
 		// FontAwesome
 		wp_register_style( 'fontawesome',
-			'//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
 			array(),
-			'4.3.0',
+			'4.5.0',
 			'all' );
 		wp_enqueue_style( 'fontawesome' );
 
@@ -410,17 +410,17 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
 if( !function_exists( "theme_js" ) ) {
 	function theme_js(){
 		wp_register_script( 'bootstrap',
-			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js',
+			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js',
 			array('jquery'),
-			'3.3.5',
+			'3.3.6',
 			true );
 		wp_enqueue_script('bootstrap');
 
 		if ( is_front_page() ) {
 			wp_register_script( 'slick',
-				'//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js',
+				'//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js',
 				array('jquery'),
-				'1.5.7',
+				'1.5.9',
 				true );
 			wp_enqueue_script('slick');
 		}
@@ -435,7 +435,7 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/library/js/scripts.js',
 			array('jquery'),
-			'1.7.1',
+			'1.7.2',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}

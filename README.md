@@ -5,6 +5,11 @@ Starter Theme for JWDMC Websites
 
 
 ##Changelog
+###1.7.2
+- Updated Bootstrap to v3.3.6
+- Updated FontAwesome to v4.5.0
+- Updated Slick to v1.5.9
+
 ###1.7.1
 - Fixed login logo styling
 - Added [Simple 301 Redirects](https://wordpress.org/plugins/simple-301-redirects/) to recommended plugins
