@@ -1,0 +1,9 @@
+/*
+CUSTOM LOGIN STYLES -- /wp-admin stylesheet
+*/
+
+body.login h1 a {
+	background: url('../img/logo-login.png') 50% 50% / contain no-repeat;
+	height: 100px;
+	width: 100%;
+}

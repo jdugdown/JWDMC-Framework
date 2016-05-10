@@ -1,9 +1,6 @@
 <!doctype html>
-<!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
-<!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
 
 	<head>
 		<meta charset="utf-8">
@@ -16,9 +13,9 @@
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
 
-		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- HTML5 shiv and Respond.js support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
@@ -41,12 +38,10 @@
 					</div>
 
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
-						<?php jwdmc_main_nav(); // Adjust using Menus in WordPress Admin ?>
+						<?php jwdmc_main_nav(); ?>
 					</div>
 
-				</div> <!-- end .container -->
-			</div> <!-- end .navbar -->
+				</div>
+			</div>
 
-		</header> <!-- end header -->
-
-		<div class="container">
+		</header>

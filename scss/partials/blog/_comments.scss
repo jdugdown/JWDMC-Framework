@@ -1,0 +1,75 @@
+/*------------------------------
+	## Comments
+------------------------------*/
+#comment-nav {
+	ul {
+		list-style: none;
+		padding: 0;
+		text-align: center;
+
+		li {
+			display: inline-block;
+
+			a {
+				display: inline-block;
+				padding: 5px;
+				margin: 0 5px;
+			}
+		}
+	}
+}
+
+ol.commentlist {
+	list-style: none;
+	padding: 0;
+
+	li {
+		background: rgba(0, 0, 0, .05);
+		padding: 15px 0 15px 15px;
+
+		div.avatar {
+			float: left;
+			width: 65px;
+		}
+
+		.comment-text {
+			float: left;
+			width: calc(100% - 65px);
+			padding: 0 15px;
+		}
+	}
+
+	> li {
+		margin: 0 0 15px;
+	}
+
+	li + li {
+		margin-top: 15px;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 15px 0 0;
+
+	}
+
+	.comment-reply-link {
+		font-size: 12px;
+		float: right;
+	}
+
+	.comment-edit-link {
+		@extend .comment-reply-link;
+		margin-right: 10px;
+	}
+}
+
+.comment-form {
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		display: block;
+		width: 100%;
+	}
+}

@@ -1,23 +1,14 @@
 <?php
 /*
-Author: Eddie Machado
-URL: htp://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, ect.
+This is where you can drop your custom functions or just edit things like thumbnail sizes, header images, sidebars, comments, ect.
 */
 
-// Get Bones Core Up & Running!
-require_once('library/bones.php'); // don't touch this
-
-
-// Shortcodes
-require_once('library/shortcodes.php'); // or this
+// Get Core Up & Running
+require_once('lib/bones.php'); // don't touch this
 
 
 // TGM Plugin Activation
-require_once('library/tgm-plugin-activation.php'); // this one too
+require_once('lib/tgm-plugin-activation.php'); // this one too
 
 
 // Set content width
@@ -152,13 +143,11 @@ function jwdmc_comments( $comment, $args, $depth ) {
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<div class="comment-author vcard clearfix">
-				<div class="avatar col-sm-3">
-					<?php echo get_avatar( $comment, $size='85' ); ?>
+				<div class="avatar">
+					<?php echo get_avatar( $comment, $size='65' ); ?>
 				</div>
-				<div class="col-sm-9 comment-text">
+				<div class="comment-text">
 					<?php printf('<h4>%s</h4>', get_comment_author_link()) ?>
-
-					<?php edit_comment_link(__('Edit','jwdmc'),'<span class="edit-comment btn btn-sm btn-default"><i class="fa fa-pencil"></i>','</span>') ?>
 
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 						<div class="alert-message success">
@@ -169,6 +158,8 @@ function jwdmc_comments( $comment, $args, $depth ) {
 					<?php comment_text() ?>
 
 					<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+
+					<?php edit_comment_link(__('Edit','jwdmc')) ?>
 				</div>
 			</div>
 		</article>
@@ -333,11 +324,7 @@ class Bootstrap_walker extends Walker_Nav_Menu {
 }
 
 
-// Load editor stylesheet
-add_editor_style('editor-style.css');
-
-
-// Add Twitter Bootstrap's standard 'active' class name to the active nav link item
+// Add Bootstrap's standard 'active' class name to the active nav link item
 function add_active_class( $classes, $item ) {
 	if( $item->menu_item_parent == 0 && in_array('current-menu-item', $classes) ) {
 		$classes[] = "active";
@@ -347,7 +334,11 @@ function add_active_class( $classes, $item ) {
 add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
 
 
-// enqueue styles
+// Load editor stylesheet
+add_editor_style('css/editor.css');
+
+
+// Register and enqueue stylesheets
 if( !function_exists("theme_styles") ) {
 	function theme_styles() {
 		// Bootstrap CSS
@@ -358,8 +349,16 @@ if( !function_exists("theme_styles") ) {
 			'all' );
 		wp_enqueue_style( 'bootstrap' );
 
+		// FontAwesome
+		wp_register_style( 'fontawesome',
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css',
+			array(),
+			'4.6.1',
+			'all' );
+		wp_enqueue_style( 'fontawesome' );
+
 		if ( is_front_page() ) {
-			// Slick CSS
+			// Slick
 			wp_register_style( 'slick',
 				'//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css',
 				array(),
@@ -368,45 +367,27 @@ if( !function_exists("theme_styles") ) {
 			wp_enqueue_style( 'slick' );
 		}
 
-		if ( is_singular('post') ) {
-			// Comments CSS
-			wp_register_style( 'comments-style',
-				get_stylesheet_directory_uri() . '/library/css/comments.css',
-				array(),
-				null,
-				'all' );
-			wp_enqueue_style( 'comments-style' );
-		}
+		// Google Fonts
+		wp_register_style( 'googlefonts',
+			'//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700,800|Open+Sans+Condensed:300,700',
+			array(),
+			null,
+			'all' );
+		wp_enqueue_style( 'googlefonts' );
 
 		// Theme CSS
 		wp_register_style( 'jwdmc-style',
-			get_stylesheet_directory_uri() . '/style.css',
+			get_stylesheet_directory_uri() . '/css/main.min.css',
 			array(),
-			'1.7.2',
+			'2.0.0',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
-
-		// FontAwesome
-		wp_register_style( 'fontawesome',
-			'//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
-			array(),
-			'4.5.0',
-			'all' );
-		wp_enqueue_style( 'fontawesome' );
-
-		// Google Fonts
-		// wp_register_style( 'googlefonts',
-		// 	'...',
-		// 	array(),
-		// 	null,
-		// 	'all' );
-		// wp_enqueue_style( 'googlefonts' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 
-// enqueue javascript
+// Register and enqueue JS
 if( !function_exists( "theme_js" ) ) {
 	function theme_js(){
 		wp_register_script( 'bootstrap',
@@ -425,17 +406,10 @@ if( !function_exists( "theme_js" ) ) {
 			wp_enqueue_script('slick');
 		}
 
-		wp_register_script(  'modernizr',
-			get_template_directory_uri() . '/library/js/modernizr.full.min.js',
-			array('jquery'),
-			'2.8.3',
-			true );
-		wp_enqueue_script('modernizr');
-
 		wp_register_script( 'jwdmc-scripts',
-			get_template_directory_uri() . '/library/js/scripts.js',
+			get_template_directory_uri() . '/js/main.min.js',
 			array('jquery'),
-			'1.7.2',
+			'2.0.0',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}
@@ -495,19 +469,25 @@ function my_login_logo_url_title() {
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 function my_login_stylesheet() { ?>
-	<link rel="stylesheet" id="custom_wp_admin_css"  href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/style-login.css'; ?>" type="text/css" media="all" />
+	<link rel="stylesheet" id="custom_wp_admin_css"  href="<?php echo get_bloginfo( 'stylesheet_directory' ) . '/css/login.css'; ?>" type="text/css" media="all" />
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
 
-// Keep Yoast meta box at bottom of screen
+// Put Yoast meta box at bottom of screen by default
 function yoasttobottom() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 
-// Change out the default Gravity Forms submit, next, and previous buttons
+/**
+ * Change out the default Gravity Forms submit, next, and previous buttons to match the theme
+ *
+ * @param string $button Current string of button code.
+ * @param string $form The form the button is tied to.
+ * @return string The filtered button.
+ */
 function form_submit_button( $button, $form ) {
 	$button = str_replace( 'input', 'button', $button );
 	$button = str_replace( '/', '', $button );

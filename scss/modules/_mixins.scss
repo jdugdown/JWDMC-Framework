@@ -1,0 +1,57 @@
+@mixin linkColors($link, $hover, $focus, $active) {
+	color: $link;
+	&:hover {
+		color: $hover;
+	}
+	&:focus {
+		color: $focus;
+	}
+	&:active {
+		color: $active;
+	}
+}
+
+@mixin verticalGradient($top, $bottom) {
+	background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+}
+
+@mixin horizontalGradient($left, $right) {
+	background: linear-gradient(to right, $left 0%, $right 100%);
+}
+
+@mixin radialGradient($inner, $outer) {
+	background: radial-gradient(ellipse at center, $inner 0%, $outer 100%);
+}
+
+@mixin mediaQuery($breakpoint) {
+	@if $breakpoint == 'min-sm' {
+		@media (min-width: 768px) {
+			@content;
+		}
+	}
+	@if $breakpoint == 'min-md' {
+		@media (min-width: 992px) {
+			@content;
+		}
+	}
+	@if $breakpoint == 'min-lg' {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	}
+	@if $breakpoint == 'max-sm' {
+		@media (max-width: 767px) {
+			@content;
+		}
+	}
+	@if $breakpoint == 'max-md' {
+		@media (max-width: 991px) {
+			@content;
+		}
+	}
+	@if $breakpoint == 'max-lg' {
+		@media (max-width: 1199px) {
+			@content;
+		}
+	}
+}

@@ -1,12 +1,8 @@
 <?php
-/* Welcome to Bones :)
-This is the core Bones file where most of the
-main functions & features reside. If you have
-any custom functions, it's best to put them
-in the functions.php file.
-
-Developed by: Eddie Machado
-URL: http://themble.com/bones/
+/*
+This is where most of the main functions & features reside.
+If you have any custom functions, it's best to put them in the functions.php file.
+Adopted from Bones by Eddie Machado - http://themble.com/bones/
 */
 
 // Adding Translation Option
@@ -14,6 +10,7 @@ load_theme_textdomain( 'jwdmc', TEMPLATEPATH.'/languages' );
 $locale = get_locale();
 $locale_file = TEMPLATEPATH."/languages/$locale.php";
 if ( is_readable($locale_file) ) require_once($locale_file);
+
 
 // Cleaning up the Wordpress Head
 function jwdmc_head_cleanup() {
@@ -28,17 +25,26 @@ function jwdmc_head_cleanup() {
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Links for Adjacent Posts
 	remove_action( 'wp_head', 'wp_generator' );                           // WP version
 }
-	// launching operation cleanup
-	add_action('init', 'jwdmc_head_cleanup');
-	// remove WP version from RSS
-	function jwdmc_rss_version() { return ''; }
-	add_filter('the_generator', 'jwdmc_rss_version');
+add_action('init', 'jwdmc_head_cleanup');
 
-// loading jquery reply elements on single pages automatically
-function jwdmc_queue_js(){ if (!is_admin()){ if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) wp_enqueue_script( 'comment-reply' ); }
+
+// Remove WP version from RSS
+function jwdmc_rss_version() {
+	return '';
 }
-	// reply on comments script
-	add_action('wp_print_scripts', 'jwdmc_queue_js');
+add_filter('the_generator', 'jwdmc_rss_version');
+
+
+// Load jQuery reply elements on single pages automatically
+function jwdmc_queue_js() {
+	if ( !is_admin() ) {
+		if ( is_singular() && comments_open() && (get_option('thread_comments') == 1) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+	}
+}
+add_action('wp_print_scripts', 'jwdmc_queue_js');
+
 
 // Fixing the Read More in the Excerpts
 // This removes the annoying […] to a Read More link
@@ -49,25 +55,30 @@ function jwdmc_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'jwdmc_excerpt_more');
 
-// Adding WP 3+ Functions & Theme Support
+
+// Adding WP Functions & Theme Support
 function jwdmc_theme_support() {
-	add_theme_support('post-thumbnails');      // wp thumbnails (sizes handled in functions.php)
-	set_post_thumbnail_size(125, 125, true);   // default thumb size
-	add_theme_support( 'custom-background' );  // wp custom background
-	add_theme_support('automatic-feed-links'); // rss thingy
-	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-	// adding post format support
-	add_theme_support( 'post-formats',      // post formats
-		array(
-			'aside',   // title less blurb
-			'gallery', // gallery of images
-			'link',    // quick link to other site
-			'image',   // an image
-			'quote',   // a quick quote
-			'status',  // a Facebook like status update
-			'video',   // video
-			'audio',   // audio
-			'chat'     // chat transcript
+	add_theme_support('post-thumbnails');
+	set_post_thumbnail_size(125, 125, true);
+	add_theme_support('automatic-feed-links');
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'gallery',
+		'link',
+		'image',
+		'quote',
+		'status',
+		'video',
+		'audio',
+		'chat',
+		)
+	);
+	add_theme_support( 'html5', array(
+		'comment-list',
+		'comment-form',
+		'search-form',
+		'gallery',
+		'caption'
 		)
 	);
 	add_theme_support( 'menus' );            // wp menus
@@ -79,12 +90,12 @@ function jwdmc_theme_support() {
 	);
 	add_theme_support('woocommerce');
 }
-
-// launching this stuff after theme setup
 add_action('after_setup_theme','jwdmc_theme_support');
 
-// adding sidebars to Wordpress (these are created in functions.php)
+
+// Add sidebars to Wordpress (these are created in functions.php)
 add_action( 'widgets_init', 'jwdmc_register_sidebars' );
+
 
 function jwdmc_main_nav() {
 	// display the wp3 menu if available
@@ -100,6 +111,7 @@ function jwdmc_main_nav() {
 		)
 	);
 }
+
 
 function jwdmc_footer_links() {
 	// display the wp3 menu if available
@@ -131,23 +143,25 @@ function jwdmc_footer_links_fallback() {
 
 // Related Posts Function (call using jwdmc_related_posts(); )
 function jwdmc_related_posts() {
-	echo '<ul id="bones-related-posts">';
+	echo '<ul id="related-posts">';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
-	if($tags) {
-		foreach($tags as $tag) { $tag_arr .= $tag->slug . ','; }
+	if ( $tags ) {
+		foreach ( $tags as $tag ) {
+			$tag_arr .= $tag->slug . ',';
+		}
 		$args = array(
 			'tag' => $tag_arr,
 			'numberposts' => 5, /* you can change this to show more */
 			'post__not_in' => array($post->ID)
 		);
 		$related_posts = get_posts($args);
-		if($related_posts) {
-			foreach ($related_posts as $post) : setup_postdata($post); ?>
+		if( $related_posts ) {
+			foreach ( $related_posts as $post ) : setup_postdata($post); ?>
 				<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-			<?php endforeach; }
-		else { ?>
-			<li class="no_related_post">No Related Posts Yet!</li>
+			<?php endforeach;
+		} else { ?>
+			<li class="no_related_post">No Related Posts</li>
 		<?php }
 	}
 	wp_reset_query();
@@ -215,9 +229,8 @@ function page_navi($before = '', $after = '') {
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function filter_ptags_on_images($content){
-   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
-
 add_filter('the_content', 'filter_ptags_on_images');
 
 ?>

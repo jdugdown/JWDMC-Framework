@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+		<div class="container">
+
 			<div id="content" class="clearfix row">
 
 				<div id="main" class="col-md-8 clearfix" role="main">
@@ -14,19 +16,19 @@
 								<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 								<p class="meta"><?php _e("Posted", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
-							</header> <!-- end article header -->
+							</header>
 
 							<section class="post_content">
 								<?php the_excerpt( '<span class="read-more">' . __("Read more on","jwdmc" ) . ' "'.the_title( '', '', false ).'" &raquo;</span>'); ?>
-							</section> <!-- end article section -->
+							</section>
 
-						</article> <!-- end article -->
+						</article>
 
 					<?php endwhile; ?>
 
-						<?php if ( function_exists('page_navi') ) { // if expirimental feature is active ?>
-							<?php page_navi(); // use the page navi function ?>
-						<?php } else { // if it is disabled, display regular wp prev & next links ?>
+						<?php if ( function_exists('page_navi') ) { ?>
+							<?php page_navi(); ?>
+						<?php } else { ?>
 							<nav class="wp-prev-next">
 								<ul class="clearfix">
 									<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "jwdmc")) ?></li>
@@ -48,10 +50,12 @@
 
 					<?php endif; ?>
 
-				</div> <!-- end #main -->
+				</div>
 
 				<?php get_sidebar(); // sidebar 1 ?>
 
-			</div> <!-- end #content -->
+			</div>
+
+		</div>
 
 <?php get_footer(); ?>

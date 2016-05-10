@@ -18,12 +18,14 @@ if ( post_password_required() ) { ?>
 	<?php if ( ! empty($comments_by_type['comment']) ) : ?>
 	<h3 id="comments"><?php comments_number('<span>' . __("No","jwdmc") . '</span> ' . __("Responses","jwdmc") . '', '<span>' . __("One","jwdmc") . '</span> ' . __("Response","jwdmc") . '', '<span>%</span> ' . __("Responses","jwdmc") );?> <?php _e("to","jwdmc"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 
-	<nav id="comment-nav">
-		<ul class="clearfix">
-			<li><?php previous_comments_link( __("Older comments","jwdmc") ) ?></li>
-			<li><?php next_comments_link( __("Newer comments","jwdmc") ) ?></li>
-		</ul>
-	</nav>
+	<?php if ( get_comment_pages_count() > 1 ): ?>
+		<nav id="comment-nav">
+			<ul class="clearfix">
+				<li class="pull-left"><?php previous_comments_link(); ?></li>
+				<li class="pull-right"><?php next_comments_link(); ?></li>
+			</ul>
+		</nav>
+	<?php endif ?>
 
 	<ol class="commentlist">
 		<?php wp_list_comments('type=comment&callback=jwdmc_comments'); ?>
@@ -39,12 +41,14 @@ if ( post_password_required() ) { ?>
 	</ol>
 <?php endif; ?>
 
-<nav id="comment-nav">
-	<ul class="clearfix">
-		<li><?php previous_comments_link( __("Older comments","jwdmc") ) ?></li>
-		<li><?php next_comments_link( __("Newer comments","jwdmc") ) ?></li>
-	</ul>
-</nav>
+	<?php if ( get_comment_pages_count() > 1 ): ?>
+		<nav id="comment-nav">
+			<ul class="clearfix">
+				<li class="pull-left"><?php previous_comments_link(); ?></li>
+				<li class="pull-right"><?php next_comments_link(); ?></li>
+			</ul>
+		</nav>
+	<?php endif; ?>
 
 <?php else : // this is displayed if there are no comments so far ?>
 
@@ -62,8 +66,30 @@ if ( post_password_required() ) { ?>
 <?php endif; ?>
 
 
-<?php if ( comments_open() ) : ?>
+<?php if ( comments_open() ) :
 
-	<?php comment_form(); ?>
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
 
-<?php endif; // if you delete this the sky will fall on your head ?>
+	$fields =  array(
+
+		'author' =>
+		'<div class="form-group comment-form-author"><label for="author">' . __( 'Name', 'jwdmc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label> <input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
+
+		'email' =>
+		'<div class="form-group comment-form-email"><label for="email">' . __( 'Email', 'jwdmc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label> <input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
+		);
+
+	$args = array(
+		'title_reply' => 'Leave a Reply',
+		'label_submit' => 'Submit',
+		'class_submit' => 'btn btn-primary',
+		'comment_field' =>  '<div class="form-group comment-form-comment"><label for="comment">' . _x( 'Comment', 'jwdmc' ) . '</label> <textarea id="comment" name="comment" cols="45" rows="6" aria-required="true">' . '</textarea></div>',
+		// 'comment_notes_after' => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+		);
+
+	comment_form($args);
+
+endif; // if you delete this the sky will fall on your head ?>

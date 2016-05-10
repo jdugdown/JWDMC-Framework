@@ -1,59 +1,47 @@
 <?php get_header(); ?>
 
-			<div id="content" class="clearfix row">
+	<div class="container">
 
-				<div id="main" class="col-md-8 clearfix" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+		<div id="content" class="clearfix row">
 
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<div id="main" class="col-md-8 clearfix" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
-						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+				<?php while ( have_posts() ) : the_post(); ?>
 
-							<header>
-								<?php the_post_thumbnail( 'jwdmc-featured' ); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
-								<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
+						<header>
+							<?php the_post_thumbnail( 'jwdmc-featured', array( 'class' => 'aligncenter' ) ); ?>
 
-								<p class="meta"><?php _e("Posted on", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" itemprop="datePublished" pubdate><?php the_time('F j, Y'); ?></time> <?php _e("by", "jwdmc"); ?> <span class="author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author"><?php the_author_posts_link(); ?></span> &amp; <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
-							</header> <!-- end article header -->
+							<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
-							<section class="post_content clearfix" itemprop="articleBody">
-								<?php the_content(); ?>
-								<?php wp_link_pages(); ?>
-							</section> <!-- end article section -->
+							<p class="meta"><?php _e("Posted on", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" itemprop="datePublished" pubdate><?php the_time('F j, Y'); ?></time> <?php _e("by", "jwdmc"); ?> <span class="author-link" itemscope="itemscope" itemtype="http://schema.org/Person" itemprop="author"><?php the_author_posts_link(); ?></span> &amp; <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
+						</header>
 
-							<footer>
-								<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","jwdmc") . ':</span> ', ' ', '</p>'); ?>
+						<section class="post_content clearfix" itemprop="articleBody">
+							<?php the_content(); ?>
+							<?php wp_link_pages(); ?>
+						</section>
 
-								<?php
-								// only show edit button if user has permission to edit posts
-								if( $user_level > 0 ) {
-								?>
-								<a href="<?php echo get_edit_post_link(); ?>" class="btn btn-default edit-post"><?php _e("Edit post","jwdmc"); ?></a>
-								<?php } ?>
+						<footer>
+							<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","jwdmc") . ':</span> ', ' ', '</p>'); ?>
+						</footer>
 
-							</footer> <!-- end article footer -->
+					</article>
 
-						</article> <!-- end article -->
+					<?php if ( comments_open() || get_comments_number() ) :
+						comments_template('',true);
+					endif; ?>
 
-						<?php comments_template('',true); ?>
 
-					<?php endwhile; else : ?>
+				<?php endwhile; ?>
 
-						<article id="post-not-found">
-							<header>
-								<h1><?php _e("Not Found", "jwdmc"); ?></h1>
-							</header>
-							<section class="post_content">
-								<p><?php _e("Sorry, but the requested resource was not found on this site.", "jwdmc"); ?></p>
-							</section>
-						</article>
+			</div>
 
-					<?php endif; ?>
+			<?php get_sidebar(); // sidebar 1 ?>
 
-				</div> <!-- end #main -->
+		</div>
 
-				<?php get_sidebar(); // sidebar 1 ?>
-
-			</div> <!-- end #content -->
+	</div>
 
 <?php get_footer(); ?>

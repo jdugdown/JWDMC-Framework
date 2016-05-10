@@ -1,0 +1,8 @@
+@media print {
+	.navbar a[href]:after,
+	nav a[href]:after,
+	p.meta a[href]:after,
+	h1 a[href]:after {
+		content: none !important;
+	}
+}

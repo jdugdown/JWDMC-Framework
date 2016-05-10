@@ -1,0 +1,69 @@
+@import '../modules/colors';
+@import '../modules/fonts';
+@import '../modules/mixins';
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: $body-font-stack;
+	font-size: 16px;
+	line-height: 1.25;
+}
+a {
+	@include linkColors($accent-color, $primary-color, $accent-color, lighten($accent-color, 20%));
+}
+a img,
+img {
+	max-width: 100%;
+	outline: none;
+	border: none;
+}
+.aligncenter {
+	display: block;
+	margin: 0 auto 10px auto;
+	height: auto;
+}
+.alignright {
+	float: right;
+	margin: 0 0 10px 10px;
+	height: auto;
+}
+.alignleft {
+	float: left;
+	margin: 0 10px 10px 0;
+	height: auto;
+}
+.row.no-gutters [class^="col-"],
+.row.no-gutters [class*="col-"] {
+	padding-right: 0;
+	padding-left: 0;
+}
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.col-xs-5ths {
+	width: 20%;
+}
+@media (min-width: 768px) {
+	.col-sm-5ths {
+		width: 20%;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-5ths {
+		width: 20%;
+	}
+}
+@media (min-width: 1200px) {
+	.col-lg-5ths {
+		width: 20%;
+	}
+}

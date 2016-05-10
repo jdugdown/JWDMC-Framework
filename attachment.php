@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
+		<div class="container">
+
 			<div id="content" class="clearfix row">
 
 				<div id="main" class="col-md-8 clearfix" role="main">
 
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -12,39 +14,26 @@
 								<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
 								<p class="meta"><?php _e("Posted", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
-							</header> <!-- end article header -->
+							</header>
 
 							<section class="post_content clearfix" itemprop="articleBody">
 								<?php the_content(); ?>
-							</section> <!-- end article section -->
+							</section>
 
 							<footer>
 								<?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","jwdmc") . ':</span> ', ' ', '</p>'); ?>
-							</footer> <!-- end article footer -->
+							</footer>
 
-						</article> <!-- end article -->
-
-						<?php //comments_template(); ?>
+						</article>
 
 					<?php endwhile; ?>
 
-					<?php else : ?>
-
-						<article id="post-not-found">
-							<header>
-								<h1><?php _e("Not Found","jwdmc"); ?></h1>
-							</header>
-							<section class="post_content">
-								<p><?php _e("Sorry, but the requested resource was not found on this site.","jwdmc"); ?></p>
-							</section>
-						</article>
-
-					<?php endif; ?>
-
-				</div> <!-- end #main -->
+				</div>
 
 				<?php get_sidebar(); // sidebar 1 ?>
 
-			</div> <!-- end #content -->
+			</div>
+
+		</div>
 
 <?php get_footer(); ?>

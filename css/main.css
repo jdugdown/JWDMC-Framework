@@ -1,0 +1,495 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Base
+	## Colors
+	## Fonts
+	## Mixins
+# Typography
+# Buttons
+# Forms
+# Gallery
+# Header
+# Footer
+# Pages
+	## Homepage
+	## Contact
+# Blog
+	## Index
+	## Archives
+	## Posts
+	## Comments
+# WooCommerce
+# Print
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.25;
+}
+
+a {
+	color: #3498db;
+}
+a:hover {
+	color: #34495e;
+}
+a:focus {
+	color: #3498db;
+}
+a:active {
+	color: #8bc4ea;
+}
+
+a img,
+img {
+	max-width: 100%;
+	border: none;
+	outline: none;
+}
+
+.aligncenter {
+	display: block;
+	height: auto;
+	margin: 0 auto 10px auto;
+}
+
+.alignright {
+	float: right;
+	height: auto;
+	margin: 0 0 10px 10px;
+}
+
+.alignleft {
+	float: left;
+	height: auto;
+	margin: 0 10px 10px 0;
+}
+
+.row.no-gutters [class^='col-'],
+.row.no-gutters [class*='col-'] {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+	position: relative;
+	float: left;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.col-xs-5ths {
+	width: 20%;
+}
+
+@media (min-width: 768px) {
+	.col-sm-5ths {
+		width: 20%;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-5ths {
+		width: 20%;
+	}
+}
+@media (min-width: 1200px) {
+	.col-lg-5ths {
+		width: 20%;
+	}
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+h1,
+.h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #34495e;
+}
+
+h2,
+.h2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #34495e;
+}
+
+h3,
+.h3 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #2e3336;
+}
+
+h4,
+.h4 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #2e3336;
+}
+
+h5,
+.h5 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px;
+	padding: 0;
+	color: #2e3336;
+}
+
+p + h2,
+p + h3 {
+	margin-top: 25px;
+}
+
+p + h4,
+p + h5 {
+	margin-top: 20px;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.btn-primary {
+	color: #fff;
+	border-color: #22303d;
+	background-color: #34495e;
+}
+.btn-primary:hover {
+	color: #fff;
+	border-color: #22303d;
+	background-color: #22303d;
+}
+.btn-primary:focus {
+	color: #fff;
+	border-color: #46637f;
+	background-color: #46637f;
+}
+.btn-primary:active:focus {
+	color: #fff;
+	border-color: #19232d;
+	background-color: #19232d;
+}
+
+.btn-accent {
+	color: #fff;
+	border-color: #217dbb;
+	background-color: #3498db;
+}
+.btn-accent:hover {
+	color: #fff;
+	border-color: #217dbb;
+	background-color: #217dbb;
+}
+.btn-accent:focus {
+	color: #fff;
+	border-color: #5faee3;
+	background-color: #5faee3;
+}
+.btn-accent:active:focus {
+	color: #fff;
+	border-color: #1d6fa5;
+	background-color: #1d6fa5;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
+.thumbnail {
+	display: inline-block;
+	margin: 5px;
+}
+
+.gallery {
+	float: left;
+	margin: 0 -5px 15px;
+	text-align: center;
+}
+.gallery .gallery-item {
+	float: left;
+}
+
+.gallery-columns-1 .gallery-item {
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	width: calc(100% / 3);
+}
+
+.gallery-columns-4 .gallery-item {
+	width: 25%;
+}
+@media (max-width: 767px) {
+	.gallery-columns-4 .gallery-item {
+		width: 50%;
+	}
+}
+
+.gallery-columns-5 .gallery-item {
+	width: 20%;
+}
+@media (max-width: 991px) {
+	.gallery-columns-5 .gallery-item {
+		width: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.gallery-columns-5 .gallery-item {
+		width: 50%;
+	}
+}
+
+.gallery-columns-6 .gallery-item {
+	width: calc(100% / 6);
+}
+@media (max-width: 991px) {
+	.gallery-columns-6 .gallery-item {
+		width: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.gallery-columns-6 .gallery-item {
+		width: 50%;
+	}
+}
+
+.gallery-columns-7 .gallery-item {
+	width: calc(100% / 7);
+}
+@media (max-width: 991px) {
+	.gallery-columns-7 .gallery-item {
+		width: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.gallery-columns-7 .gallery-item {
+		width: 50%;
+	}
+}
+
+.gallery-columns-8 .gallery-item {
+	width: 12.5%;
+}
+@media (max-width: 991px) {
+	.gallery-columns-8 .gallery-item {
+		width: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.gallery-columns-8 .gallery-item {
+		width: 50%;
+	}
+}
+
+.gallery-columns-9 .gallery-item {
+	width: calc(100% / 9);
+}
+@media (max-width: 991px) {
+	.gallery-columns-9 .gallery-item {
+		width: 25%;
+	}
+}
+@media (max-width: 767px) {
+	.gallery-columns-9 .gallery-item {
+		width: 50%;
+	}
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.navbar .navbar-toggle {
+	margin: 0;
+	padding: 18px 15px;
+	border: 0;
+	border-radius: 0;
+}
+.navbar .navbar-toggle .icon-bar {
+	border-radius: 0;
+}
+
+.navbar-default {
+	border: none;
+	border-radius: 0;
+	background: #34495e;
+}
+.navbar-default .navbar-brand {
+	height: auto;
+	color: #fff;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: #3498db;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+	color: #3498db;
+	background: none;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-links ul {
+	font-size: 0;
+	padding: 0;
+	list-style: none;
+}
+.footer-links ul li {
+	display: inline-block;
+}
+.footer-links ul li a {
+	font-size: 14px;
+	padding: 5px 10px;
+}
+
+.footer-left {
+	text-align: center;
+}
+@media (min-width: 992px) {
+	.footer-left {
+		text-align: left;
+	}
+}
+
+.footer-right {
+	text-align: center;
+}
+@media (min-width: 992px) {
+	.footer-right {
+		text-align: right;
+	}
+}
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+/*------------------------------
+	## Homepage
+------------------------------*/
+/*------------------------------
+	## Contact
+------------------------------*/
+/*--------------------------------------------------------------
+# Blog
+--------------------------------------------------------------*/
+/*------------------------------
+	## Index
+------------------------------*/
+/*------------------------------
+	## Archives
+------------------------------*/
+/*------------------------------
+	## Posts
+------------------------------*/
+/*------------------------------
+	## Comments
+------------------------------*/
+#comment-nav ul {
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+#comment-nav ul li {
+	display: inline-block;
+}
+#comment-nav ul li a {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 5px;
+}
+
+ol.commentlist {
+	padding: 0;
+	list-style: none;
+}
+ol.commentlist li {
+	padding: 15px 0 15px 15px;
+	background: rgba(0, 0, 0, .05);
+}
+ol.commentlist li div.avatar {
+	float: left;
+	width: 65px;
+}
+ol.commentlist li .comment-text {
+	float: left;
+	width: calc(100% - 65px);
+	padding: 0 15px;
+}
+ol.commentlist > li {
+	margin: 0 0 15px;
+}
+ol.commentlist li + li {
+	margin-top: 15px;
+}
+ol.commentlist ul {
+	margin: 15px 0 0;
+	padding: 0;
+	list-style: none;
+}
+ol.commentlist .comment-reply-link,
+ol.commentlist .comment-edit-link {
+	font-size: 12px;
+	float: right;
+}
+ol.commentlist .comment-edit-link {
+	margin-right: 10px;
+}
+
+.comment-form input[type='text'],
+.comment-form input[type='email'],
+.comment-form textarea {
+	display: block;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# WooCommerce
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Print
+--------------------------------------------------------------*/
+@media print {
+	.navbar a[href]:after,
+	nav a[href]:after,
+	p.meta a[href]:after,
+	h1 a[href]:after {
+		content: none !important;
+	}
+}

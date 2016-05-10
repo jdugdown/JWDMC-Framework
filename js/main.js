@@ -1,15 +1,5 @@
 jQuery(document).ready(function($) {
 
-	$('ol.commentlist a.comment-reply-link').each(function() {
-		$(this).addClass('btn btn-success btn-mini');
-		return true;
-	});
-
-	$('#cancel-comment-reply-link').each(function() {
-		$(this).addClass('btn btn-danger btn-mini');
-		return true;
-	});
-
 	$('article.post').hover(function(){
 		$('a.edit-post').show();
 	},function(){

@@ -1,32 +1,34 @@
 <?php get_header(); ?>
 
+		<div class="container">
+
 			<div id="content" class="clearfix row">
 
 				<div id="main" class="col-md-8 clearfix" role="main">
 
 					<?php if ( is_category() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Posts Categorized:", "jwdmc"); ?></span> <?php single_cat_title(); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Posts Categorized:", "jwdmc"); ?></small> <?php single_cat_title(); ?>
 						</h1>
 					<?php } elseif ( is_tag() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Posts Tagged:", "jwdmc"); ?></span> <?php single_tag_title(); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Posts Tagged:", "jwdmc"); ?></small> <?php single_tag_title(); ?>
 						</h1>
 					<?php } elseif ( is_author() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Posts By:", "jwdmc"); ?></span> <?php get_the_author_meta('display_name'); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Posts By:", "jwdmc"); ?></small> <?php get_the_author_meta('display_name'); ?>
 						</h1>
 					<?php } elseif ( is_day() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Daily Archives:", "jwdmc"); ?></span> <?php the_time('l, F j, Y'); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Daily Archives:", "jwdmc"); ?></small> <?php the_time('l, F j, Y'); ?>
 						</h1>
 					<?php } elseif ( is_month() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Monthly Archives:", "jwdmc"); ?></span> <?php the_time('F Y'); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Monthly Archives:", "jwdmc"); ?></small> <?php the_time('F Y'); ?>
 						</h1>
 					<?php } elseif ( is_year() ) { ?>
-						<h1 class="archive_title h2">
-							<span><?php _e("Yearly Archives:", "jwdmc"); ?></span> <?php the_time('Y'); ?>
+						<h1 class="page-title" itemprop="headline">
+							<small><?php _e("Yearly Archives:", "jwdmc"); ?></small> <?php the_time('Y'); ?>
 						</h1>
 					<?php } ?>
 
@@ -38,13 +40,13 @@
 								<h1 class="h3"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 								<p class="meta"><?php _e("Posted on", "jwdmc"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" itemprop="datePublished" pubdate><?php the_time('F j, Y'); ?></time> <?php _e("by", "jwdmc"); ?> <?php the_author_posts_link(); ?> &amp; <?php _e("filed under", "jwdmc"); ?> <?php the_category(', '); ?>.</p>
-							</header> <!-- end article header -->
+							</header>
 
 							<section>
 								<?php the_excerpt(); ?>
-							</section> <!-- end article section -->
+							</section>
 
-						</article> <!-- end article -->
+						</article>
 
 					<?php endwhile; ?>
 
@@ -72,10 +74,12 @@
 
 					<?php endif; ?>
 
-				</div> <!-- end #main -->
+				</div>
 
 				<?php get_sidebar(); // sidebar 1 ?>
 
-			</div> <!-- end #content -->
+			</div>
+
+		</h1>
 
 <?php get_footer(); ?>
