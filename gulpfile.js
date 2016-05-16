@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
 // Images Task
 // Optimizes images
 gulp.task('images', function() {
-	gulp.src('src/img/*')
+	gulp.src('src/*')
 		.pipe(imagemin())
 		.pipe(gulp.dest('img'));
 });
@@ -58,7 +58,7 @@ gulp.task( 'deploy', function () {
 		password: 'password',
 		parallel: 8,
 		log:      gutil.log
-	} );
+	});
 
 	var globs = [
 	'css/**',
@@ -70,16 +70,29 @@ gulp.task( 'deploy', function () {
 	];
 
 	gulp.src( globs, { base: '.', buffer: false } )
-		.pipe( conn.newer( '/httpdocs' ) ) // only upload newer files!
-		.pipe( conn.dest( '/httpdocs' ) );
+		.pipe( conn.newer( '/path/to/remote/folder' ) ) // only upload newer files!
+		.pipe( conn.dest( '/path/to/remote/folder' ) );
 });
 
 // Watch Task
 // Watches files and runs other tasks when changes are detected
 gulp.task('watch', function() {
-	gulp.watch('js/main.js', ['scripts', 'deploy']);
-	gulp.watch('src/img/*', ['images', 'deploy']);
-	gulp.watch('scss/**/*.scss', ['styles', 'deploy']);
+	// Watch main.js and run the Scripts Task if a change is detected
+	gulp.watch('js/main.js', ['scripts']);
+	// Run the Deploy Task if new JavaScript is minified into main.min.js
+	gulp.watch('js/main.min.js', ['deploy']);
+
+	// Watch the src directory and run the Images Task if a change is detected
+	gulp.watch('src/*', ['images']);
+	// Run the Deploy Task if new images are optimized and copied to the img directory
+	gulp.watch('img/*', ['deploy']);
+
+	// Watch Sass files and run the Styles Task if a change is detected
+	gulp.watch('scss/**/*.scss', ['styles']);
+	// Run the Deploy Task if new CSS is written to main.min.css
+	gulp.watch('css/main.min.css', ['deploy']);
+
+	// Run the Deploy Task if changes are detected in any PHP file
 	gulp.watch('*.php', ['deploy']);
 });
 
