@@ -351,7 +351,7 @@ if( !function_exists("theme_styles") ) {
 
 		// FontAwesome
 		wp_register_style( 'fontawesome',
-			'//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css',
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
 			array(),
 			'4.6.1',
 			'all' );
