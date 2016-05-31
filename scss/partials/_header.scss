@@ -12,32 +12,33 @@
 }
 
 .navbar-default {
-	background: $primary-color;
+	background: $white;
 	border: none;
 	border-radius: 0;
 
 	.navbar-brand {
 		height: auto;
-		color: $white;
+		color: $black;
 	}
 
 	.navbar-nav {
 		> li {
 			> a {
-				color: $white;
+				color: $black;
 
 				&:hover,
 				&:focus {
-					color: $accent-color;
+					color: lighten($black, 15%);
 				}
 			}
-		}
-		> .active {
-			> a,
-			> a:focus,
-			> a:hover {
-				background: none;
-				color: $accent-color;
+
+			&.active {
+				> a,
+				> a:focus,
+				> a:hover {
+					background: none;
+					color: lighten($black, 15%);
+				}
 			}
 		}
 	}

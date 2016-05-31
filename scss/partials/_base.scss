@@ -11,7 +11,7 @@ body {
 	line-height: 1.25;
 }
 a {
-	@include linkColors($accent-color, $primary-color, $accent-color, lighten($accent-color, 20%));
+	@include linkColors($black, $black, $black, lighten($black, 20%));
 }
 a img,
 img {

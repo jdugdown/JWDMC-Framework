@@ -1,46 +1,48 @@
-.btn-primary {
-	background-color: $primary-color;
-	border-color: darken($primary-color, 10%);
-	color: $white;
-
-	&:hover {
-		background-color: darken($primary-color, 10%);
-		border-color: darken($primary-color, 10%);
+.btn {
+	.btn-black {
+		background-color: $black;
+		border-color: $black;
 		color: $white;
+
+		&:hover {
+			background-color: lighten($black, 10%);
+			border-color: lighten($black, 10%);
+			color: $white;
+		}
+
+		&:focus {
+			background-color: lighten($black, 15%);
+			border-color: lighten($black, 15%);
+			color: $white;
+		}
+
+		&:active:focus {
+			background-color: $black;
+			border-color: $black;
+			color: $white;
+		}
 	}
 
-	&:focus {
-		background-color: lighten($primary-color, 10%);
-		border-color: lighten($primary-color, 10%);
-		color: $white;
-	}
+	.btn-white {
+		background-color: $white;
+		border-color: $white;
+		color: $black;
 
-	&:active:focus {
-		background-color: darken($primary-color, 15%);
-		border-color: darken($primary-color, 15%);
-		color: $white;
-	}
-}
-.btn-accent {
-	background-color: $accent-color;
-	border-color: darken($accent-color, 10%);
-	color: $white;
+		&:hover {
+			background-color: darken($white, 10%);
+			border-color: darken($white, 10%);
+			color: $black;
+		}
 
-	&:hover {
-		background-color: darken($accent-color, 10%);
-		border-color: darken($accent-color, 10%);
-		color: $white;
-	}
+		&:focus {
+			background-color: darken($white, 15%);
+			border-color: darken($white, 15%);
+			color: $black;
+		}
 
-	&:focus {
-		background-color: lighten($accent-color, 10%);
-		border-color: lighten($accent-color, 10%);
-		color: $white;
-	}
-
-	&:active:focus {
-		background-color: darken($accent-color, 15%);
-		border-color: darken($accent-color, 15%);
-		color: $white;
-	}
-}
+		&:active:focus {
+			background-color: $white;
+			border-color: $white;
+			color: $black;
+		}
+	}}

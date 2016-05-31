@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
 // Images Task
 // Optimizes images
 gulp.task('images', function() {
-	gulp.src('src/*')
+	gulp.src('src/**/*')
 		.pipe(imagemin())
 		.pipe(gulp.dest('img'));
 });
@@ -83,7 +83,7 @@ gulp.task('watch', function() {
 	gulp.watch('js/main.min.js', ['deploy']);
 
 	// Watch the src directory and run the Images Task if a change is detected
-	gulp.watch('src/*', ['images']);
+	gulp.watch('src/**/*', ['images']);
 	// Run the Deploy Task if new images are optimized and copied to the img directory
 	gulp.watch('img/*', ['deploy']);
 
