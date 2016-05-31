@@ -4,6 +4,9 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.0.0
+- Stable release
+
 ### 2.0.0-beta
 - Overhaul of file structure
 - Introduced Sass and Gulp to our workflow
