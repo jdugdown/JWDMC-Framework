@@ -14,17 +14,19 @@
 		}
 	}
 }
+
 .footer-left {
 	text-align: center;
 
-	@include mediaQuery(min-md) {
+	@include media-query(min-md) {
 		text-align: left;
 	}
 }
+
 .footer-right {
 	text-align: center;
 
-	@include mediaQuery(min-md) {
+	@include media-query(min-md) {
 		text-align: right;
 	}
 }

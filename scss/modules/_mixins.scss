@@ -1,29 +1,32 @@
-@mixin linkColors($link, $hover, $focus, $active) {
+@mixin link-colors($link, $hover, $focus, $active) {
 	color: $link;
+
 	&:hover {
 		color: $hover;
 	}
+
 	&:focus {
 		color: $focus;
 	}
+
 	&:active {
 		color: $active;
 	}
 }
 
-@mixin verticalGradient($top, $bottom) {
+@mixin vertical-gradient($top, $bottom) {
 	background: linear-gradient(to bottom, $top 0%, $bottom 100%);
 }
 
-@mixin horizontalGradient($left, $right) {
+@mixin horizontal-gradient($left, $right) {
 	background: linear-gradient(to right, $left 0%, $right 100%);
 }
 
-@mixin radialGradient($inner, $outer) {
+@mixin radial-gradient($inner, $outer) {
 	background: radial-gradient(ellipse at center, $inner 0%, $outer 100%);
 }
 
-@mixin mediaQuery($breakpoint) {
+@mixin media-query($breakpoint) {
 	@if $breakpoint == 'min-sm' {
 		@media (min-width: 768px) {
 			@content;

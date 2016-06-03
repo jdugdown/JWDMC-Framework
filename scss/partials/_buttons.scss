@@ -1,5 +1,5 @@
 .btn {
-	.btn-black {
+	&.btn-black {
 		background-color: $black;
 		border-color: $black;
 		color: $white;
@@ -23,7 +23,7 @@
 		}
 	}
 
-	.btn-white {
+	&.btn-white {
 		background-color: $white;
 		border-color: $white;
 		color: $black;
@@ -45,4 +45,5 @@
 			border-color: $white;
 			color: $black;
 		}
-	}}
+	}
+}

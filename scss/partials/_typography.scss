@@ -5,6 +5,7 @@ h1,
 	margin: 0 0 10px;
 	padding: 0;
 }
+
 h2,
 .h2 {
 	font-family: $heading-font-stack;
@@ -12,6 +13,7 @@ h2,
 	margin: 0 0 10px;
 	padding: 0;
 }
+
 h3,
 .h3 {
 	font-family: $heading-font-stack;
@@ -19,6 +21,7 @@ h3,
 	margin: 0 0 10px;
 	padding: 0;
 }
+
 h4,
 .h4 {
 	font-family: $heading-font-stack;
@@ -26,6 +29,7 @@ h4,
 	margin: 0 0 10px;
 	padding: 0;
 }
+
 h5,
 .h5 {
 	font-family: $heading-font-stack;
@@ -33,14 +37,17 @@ h5,
 	margin: 0 0 10px;
 	padding: 0;
 }
+
 p + h2,
 p + h3 {
 	margin-top: 25px;
 }
+
 p + h4,
 p + h5 {
 	margin-top: 20px;
 }
+
 p {
 	margin: 0 0 10px;
 }
