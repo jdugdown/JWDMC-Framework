@@ -3,6 +3,10 @@
 This is where you can drop your custom functions or just edit things like thumbnail sizes, header images, sidebars, comments, ect.
 */
 
+// Disable XMLRPC
+add_filter('xmlrpc_enabled', '__return_false');
+
+
 // Get Core Up & Running
 require_once('lib/bones.php'); // don't touch this
 
