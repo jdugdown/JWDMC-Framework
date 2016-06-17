@@ -7,6 +7,10 @@ This is where you can drop your custom functions or just edit things like thumbn
 add_filter('xmlrpc_enabled', '__return_false');
 
 
+// Disable WordPress theme and plugin editor
+define( 'DISALLOW_FILE_EDIT', true );
+
+
 // Get Core Up & Running
 require_once('lib/bones.php'); // don't touch this
 
