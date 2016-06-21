@@ -39,7 +39,8 @@ function jwdmc_register_sidebars() {
 		'after_title'   => '</h4>',
 		));
 	register_sidebar(array(
-		'id'            => 'Homepage Sidebar',
+		'id'            => 'sidebar2',
+		'name'          => 'Homepage Sidebar',
 		'description'   => 'Used only on the homepage.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
