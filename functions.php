@@ -79,18 +79,9 @@ function my_theme_register_required_plugins() {
 
 	$plugins = array(
 		array(
-			'name'     => 'Advanced Custom Fields',
-			'slug'     => 'advanced-custom-fields',
-			'required' => false,
-			),
-		array(
-			'name'     => 'Regenerate Thumbnails',
-			'slug'     => 'regenerate-thumbnails',
-			'required' => false,
-			),
-		array(
-			'name'     => 'WooCommerce - excelling eCommerce',
-			'slug'     => 'woocommerce',
+			'name'     => 'Advanced Custom Fields Pro',
+			'slug'     => 'advanced-custom-fields-pro',
+			'source'   => get_stylesheet_directory() . '/lib/plugins/advanced-custom-fields-pro.zip',
 			'required' => false,
 			),
 		array(
@@ -99,8 +90,8 @@ function my_theme_register_required_plugins() {
 			'required' => false,
 			),
 		array(
-			'name'     => 'WordPress SEO by Yoast',
-			'slug'     => 'wordpress-seo',
+			'name'     => 'Regenerate Thumbnails',
+			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
 			),
 		array(
@@ -108,18 +99,28 @@ function my_theme_register_required_plugins() {
 			'slug'     => 'simple-301-redirects',
 			'required' => false,
 			),
+		array(
+			'name'     => 'WordPress SEO by Yoast',
+			'slug'     => 'wordpress-seo',
+			'required' => false,
+			),
+		array(
+			'name'     => 'WooCommerce - excelling eCommerce',
+			'slug'     => 'woocommerce',
+			'required' => false,
+			),
 	);
 
 	$config = array(
 		'default_path' => '',                      // Default absolute path to pre-packaged plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'has_notices'  => true,                    // Show admin notices or not.
+		'has_notices'  => false,                    // Show admin notices or not.
 		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'tgmpa' ),
+			'page_title'                      => __( 'Install Recommended Plugins', 'tgmpa' ),
 			'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
 			'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
 			'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
