@@ -31,29 +31,28 @@
 		@media (min-width: 768px) {
 			@content;
 		}
-	}
-	@if $breakpoint == 'min-md' {
+	} @else if $breakpoint == 'min-md' {
 		@media (min-width: 992px) {
 			@content;
 		}
-	}
-	@if $breakpoint == 'min-lg' {
+	} @else if $breakpoint == 'min-lg' {
 		@media (min-width: 1200px) {
 			@content;
 		}
-	}
-	@if $breakpoint == 'max-sm' {
+	} @else if $breakpoint == 'max-sm' {
 		@media (max-width: 767px) {
 			@content;
 		}
-	}
-	@if $breakpoint == 'max-md' {
+	} @else if $breakpoint == 'max-md' {
 		@media (max-width: 991px) {
 			@content;
 		}
-	}
-	@if $breakpoint == 'max-lg' {
+	} @else if $breakpoint == 'max-lg' {
 		@media (max-width: 1199px) {
+			@content;
+		}
+	} @else {
+		@media ($breakpoint) {
 			@content;
 		}
 	}

@@ -11,9 +11,10 @@
 # Gallery
 # Header
 # Footer
-# Pages
+# Page Templates
 	## Homepage
-	## Contact
+	## Interior Template
+	## Default Template
 # Blog
 	## Index
 	## Archives
@@ -36,16 +37,16 @@ body {
 }
 
 a {
-	color: #3498db;
+	color: #000;
 }
 a:hover {
-	color: #34495e;
+	color: #000;
 }
 a:focus {
-	color: #3498db;
+	color: #000;
 }
 a:active {
-	color: #8bc4ea;
+	color: #333;
 }
 
 a img,
@@ -58,7 +59,7 @@ img {
 .aligncenter {
 	display: block;
 	height: auto;
-	margin: 0 auto 10px auto;
+	margin: 0 auto 10px;
 }
 
 .alignright {
@@ -109,6 +110,11 @@ img {
 		width: 20%;
 	}
 }
+@media (min-width: 1400px) {
+	.col-xl-5ths {
+		width: auto;
+	}
+}
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -118,7 +124,6 @@ h1,
 	font-weight: 700;
 	margin: 0 0 10px;
 	padding: 0;
-	color: #34495e;
 }
 
 h2,
@@ -127,7 +132,6 @@ h2,
 	font-weight: 700;
 	margin: 0 0 10px;
 	padding: 0;
-	color: #34495e;
 }
 
 h3,
@@ -136,7 +140,6 @@ h3,
 	font-weight: 700;
 	margin: 0 0 10px;
 	padding: 0;
-	color: #2e3336;
 }
 
 h4,
@@ -145,7 +148,6 @@ h4,
 	font-weight: 700;
 	margin: 0 0 10px;
 	padding: 0;
-	color: #2e3336;
 }
 
 h5,
@@ -154,7 +156,6 @@ h5,
 	font-weight: 700;
 	margin: 0 0 10px;
 	padding: 0;
-	color: #2e3336;
 }
 
 p + h2,
@@ -174,46 +175,45 @@ p {
 /*--------------------------------------------------------------
 # Buttons
 --------------------------------------------------------------*/
-.btn-primary {
+.btn.btn-black {
 	color: #fff;
-	border-color: #22303d;
-	background-color: #34495e;
+	border-color: #000;
+	background-color: #000;
 }
-.btn-primary:hover {
+.btn.btn-black:hover {
 	color: #fff;
-	border-color: #22303d;
-	background-color: #22303d;
+	border-color: #1a1a1a;
+	background-color: #1a1a1a;
 }
-.btn-primary:focus {
+.btn.btn-black:focus {
 	color: #fff;
-	border-color: #46637f;
-	background-color: #46637f;
+	border-color: #262626;
+	background-color: #262626;
 }
-.btn-primary:active:focus {
+.btn.btn-black:active:focus {
 	color: #fff;
-	border-color: #19232d;
-	background-color: #19232d;
+	border-color: #000;
+	background-color: #000;
 }
-
-.btn-accent {
-	color: #fff;
-	border-color: #217dbb;
-	background-color: #3498db;
+.btn.btn-white {
+	color: #000;
+	border-color: #fff;
+	background-color: #fff;
 }
-.btn-accent:hover {
-	color: #fff;
-	border-color: #217dbb;
-	background-color: #217dbb;
+.btn.btn-white:hover {
+	color: #000;
+	border-color: #e6e6e6;
+	background-color: #e6e6e6;
 }
-.btn-accent:focus {
-	color: #fff;
-	border-color: #5faee3;
-	background-color: #5faee3;
+.btn.btn-white:focus {
+	color: #000;
+	border-color: #d9d9d9;
+	background-color: #d9d9d9;
 }
-.btn-accent:active:focus {
-	color: #fff;
-	border-color: #1d6fa5;
-	background-color: #1d6fa5;
+.btn.btn-white:active:focus {
+	color: #000;
+	border-color: #fff;
+	background-color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -222,18 +222,30 @@ p {
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
-.thumbnail {
-	display: inline-block;
-	margin: 5px;
-}
-
 .gallery {
-	float: left;
-	margin: 0 -5px 15px;
+	font-size: 0;
+	margin: 0 0 15px;
 	text-align: center;
 }
 .gallery .gallery-item {
-	float: left;
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
+}
+.gallery .thumbnail {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+	padding: 3px;
+}
+.gallery .thumbnail.active,
+.gallery .thumbnail:focus,
+.gallery .thumbnail:hover {
+	border-color: #333;
+}
+.gallery .thumbnail > img {
+	width: 100%;
+	margin: 0;
 }
 
 .gallery-columns-1 .gallery-item {
@@ -343,23 +355,23 @@ p {
 .navbar-default {
 	border: none;
 	border-radius: 0;
-	background: #34495e;
+	background: #fff;
 }
 .navbar-default .navbar-brand {
 	height: auto;
-	color: #fff;
+	color: #000;
 }
 .navbar-default .navbar-nav > li > a {
-	color: #fff;
+	color: #000;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-	color: #3498db;
+	color: #262626;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:hover {
-	color: #3498db;
+.navbar-default .navbar-nav > li.active > a,
+.navbar-default .navbar-nav > li.active > a:focus,
+.navbar-default .navbar-nav > li.active > a:hover {
+	color: #262626;
 	background: none;
 }
 
@@ -398,13 +410,21 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Pages
+# Page Templates
 --------------------------------------------------------------*/
 /*------------------------------
 	## Homepage
 ------------------------------*/
 /*------------------------------
-	## Contact
+	## Interior Template
+------------------------------*/
+.flexible-content-row {
+	margin-top: 75px;
+	margin-bottom: 75px;
+}
+
+/*------------------------------
+	## Default Template
 ------------------------------*/
 /*--------------------------------------------------------------
 # Blog

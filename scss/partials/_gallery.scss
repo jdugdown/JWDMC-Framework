@@ -1,15 +1,30 @@
-.thumbnail {
-	display: inline-block;
-	margin: 5px;
-}
-
 .gallery {
 	text-align: center;
-	float: left;
-	margin: 0 -5px 15px;
+	margin: 0 0 15px;
+	font-size: 0;
 
 	.gallery-item {
-		float: left;
+		display: inline-block;
+		width: 100%;
+		padding: 10px;
+	}
+
+	.thumbnail {
+		display: inline-block;
+		width: 100%;
+		margin: 0;
+		padding: 3px;
+
+		&.active,
+		&:focus,
+		&:hover {
+			border-color: lighten($black, 20%);
+		}
+
+		> img {
+			width: 100%;
+			margin: 0;
+		}
 	}
 }
 

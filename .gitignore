@@ -14,3 +14,6 @@ wp-content/wp-cache-config.php
 images/Thumbs.db
 Thumbs.db
 /img/Thumbs.db
+package.json
+/node_modules
+/.sass-cache

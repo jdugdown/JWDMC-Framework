@@ -78,3 +78,9 @@ img {
 		width: 20%;
 	}
 }
+
+@include media-query('min-width: 1400px') {
+	.col-xl-5ths {
+		width: auto;
+	}
+}

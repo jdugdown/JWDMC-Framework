@@ -11,6 +11,12 @@ var uglify = require('gulp-uglify'),
 	gutil = require('gulp-util'),
 	ftp = require('vinyl-ftp');
 
+// Error handling function
+function errorLog(error) {
+	console.error.bind(error);
+	this.emit('end');
+}
+
 // Scripts Task
 // Minifies JavaScript with UglifyJS
 gulp.task('scripts', function() {
@@ -33,9 +39,8 @@ gulp.task('images', function() {
 gulp.task('styles', function() {
 	sass('scss/**/*.scss', {
 		style: 'expanded',
-		stopOnError: true,
 	})
-		.on('error', sass.logError)
+		.on('error', errorLog)
 		.pipe(prefix({
 			browsers: ['last 3 versions'],
 		}))
