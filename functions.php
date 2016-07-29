@@ -361,9 +361,9 @@ if( !function_exists("theme_styles") ) {
 	function theme_styles() {
 		// Bootstrap CSS
 		wp_register_style( 'bootstrap',
-			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
 			array(),
-			'3.3.6',
+			'3.3.7',
 			'all' );
 		wp_enqueue_style( 'bootstrap' );
 
@@ -409,9 +409,9 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
 if( !function_exists( "theme_js" ) ) {
 	function theme_js(){
 		wp_register_script( 'bootstrap',
-			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js',
+			'//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
 			array('jquery'),
-			'3.3.6',
+			'3.3.7',
 			true );
 		wp_enqueue_script('bootstrap');
 
