@@ -1,21 +1,17 @@
 var gulp = require('gulp');
 
-// require plugins - npm install --save-dev gulp-uglify gulp-uglifycss gulp-ruby-sass gulp-autoprefixer gulp-csscomb gulp-rename gulp-imagemin gulp-util vinyl-ftp
+// require plugins - npm install --save-dev gulp-uglify gulp-uglifycss gulp-plumber gulp-notify gulp-sass gulp-autoprefixer gulp-csscomb gulp-rename gulp-imagemin gulp-util vinyl-ftp
 var uglify = require('gulp-uglify'),
 	uglifycss = require('gulp-uglifycss'),
-	sass = require('gulp-ruby-sass'),
+	plumber = require('gulp-plumber'),
+	notify = require('gulp-notify'),
+	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
 	csscomb = require('gulp-csscomb'),
 	rename = require('gulp-rename'),
 	imagemin = require('gulp-imagemin'),
 	gutil = require('gulp-util'),
 	ftp = require('vinyl-ftp');
-
-// Error handling function
-function errorLog(error) {
-	console.error.bind(error);
-	this.emit('end');
-}
 
 // Scripts Task
 // Minifies JavaScript with UglifyJS
@@ -37,10 +33,17 @@ gulp.task('images', function() {
 // Styles Task
 // Compiles Sass, then combs and minifies the output
 gulp.task('styles', function() {
-	sass('scss/**/*.scss', {
-		style: 'expanded',
-	})
-		.on('error', errorLog)
+	gulp.src('scss/**/*.scss')
+		.pipe(plumber(function(error) {
+			gutil.log(gutil.colors.red(error.message));
+			notify.onError({
+		        title: "Compile Error",
+		        message: "Sass encountered an error. Check log for details.",
+				sound: false,
+		    }).apply(this, arguments);
+			this.emit('end');
+		}))
+		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(prefix({
 			browsers: ['last 3 versions'],
 		}))
@@ -61,7 +64,7 @@ gulp.task( 'deploy', function () {
 		host:     'hostname',
 		user:     'username',
 		password: 'password',
-		parallel: 8,
+		parallel: 20,
 		log:      gutil.log
 	});
 
@@ -71,12 +74,14 @@ gulp.task( 'deploy', function () {
 	'js/**',
 	'lib/**',
 	'scss/**',
-	'*.php'
+	'*.php',
+	'page-templates/*.php',
+	'lib/bones.php'
 	];
 
-	gulp.src( globs, { base: '.', buffer: false } )
-		.pipe( conn.newer( '/path/to/remote/folder' ) ) // only upload newer files!
-		.pipe( conn.dest( '/path/to/remote/folder' ) );
+	gulp.src(globs, { base: '.', buffer: false })
+		.pipe(conn.newer('/path/to/remote/folder')) // only upload newer files!
+		.pipe(conn.dest('/path/to/remote/folder'));
 });
 
 // Watch Task
@@ -98,7 +103,7 @@ gulp.task('watch', function() {
 	gulp.watch('css/main.min.css', ['deploy']);
 
 	// Run the Deploy Task if changes are detected in any PHP file
-	gulp.watch('*.php', ['deploy']);
+	gulp.watch(['*.php', 'page-templates/*.php', 'lib/bones.php'], ['deploy']);
 });
 
 gulp.task('default', ['scripts', 'styles', 'watch']);
