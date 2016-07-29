@@ -4,6 +4,16 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.3.0
+- Updated Bootstrap to 3.3.7
+- Fixed function prefixes
+- Replaced gulp-ruby-sass with gulp-sass
+- Introduced gulp-plumber and gulp-notify for easier error handling when compiling Sass code
+- Added previously excluded PHP files to our watch and deploy tasks in `gulpfile.js`
+- Streamlined `editor.css` and changed default font stack utilize system fonts in preparation for WordPress 4.6
+- Improved floated images by centering on mobile
+- Fixed no-gutter rows when used within a regular container
+
 ### 2.2.0
 - Added a standard interior page template (`/page-templates/interior.php`) and JSON file (`/lib/plugins/interior-page-fields.json`) to import related ACF fields
 - Revised gallery CSS to work with options in new interior page template
