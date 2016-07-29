@@ -30,15 +30,30 @@ img {
 }
 
 .alignright {
-	float: right;
-	margin: 0 0 10px 10px;
+	display: block;
+	margin: 0 auto 10px;
 	height: auto;
+
+	@include media-query(min-sm) {
+		float: right;
+		margin: 0 0 10px 10px;
+	}
 }
 
 .alignleft {
-	float: left;
-	margin: 0 10px 10px 0;
+	display: block;
+	margin: 0 auto 10px;
 	height: auto;
+
+	@include media-query(min-sm) {
+		float: left;
+		margin: 0 10px 10px 0;
+	}
+}
+
+.container .row.no-gutters {
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .row.no-gutters [class^="col-"],
