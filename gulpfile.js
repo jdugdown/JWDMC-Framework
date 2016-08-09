@@ -1,16 +1,17 @@
 var gulp = require('gulp');
 
-// require plugins - npm install --save-dev gulp-uglify gulp-uglifycss gulp-plumber gulp-notify gulp-sass gulp-autoprefixer gulp-csscomb gulp-rename gulp-imagemin gulp-util vinyl-ftp
+// require plugins - npm install --save-dev gulp-uglify gulp-rename gulp-plumber gulp-util gulp-notify gulp-sass gulp-sourcemaps gulp-autoprefixer gulp-clean-css gulp-imagemin gulp-watch vinyl-ftp
 var uglify = require('gulp-uglify'),
-	uglifycss = require('gulp-uglifycss'),
+	rename = require('gulp-rename'),
 	plumber = require('gulp-plumber'),
+	gutil = require('gulp-util'),
 	notify = require('gulp-notify'),
 	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
 	prefix = require('gulp-autoprefixer'),
-	csscomb = require('gulp-csscomb'),
-	rename = require('gulp-rename'),
+	cleancss = require('gulp-clean-css'),
 	imagemin = require('gulp-imagemin'),
-	gutil = require('gulp-util'),
+	watch = require('gulp-watch'),
 	ftp = require('vinyl-ftp');
 
 // Scripts Task
@@ -22,16 +23,8 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('js/'));
 });
 
-// Images Task
-// Optimizes images
-gulp.task('images', function() {
-	gulp.src('src/**/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('img'));
-});
-
 // Styles Task
-// Compiles Sass, then combs and minifies the output
+// Compiles Sass, then prefixes, and minifies the output before writing source maps
 gulp.task('styles', function() {
 	gulp.src('scss/**/*.scss')
 		.pipe(plumber(function(error) {
@@ -43,18 +36,23 @@ gulp.task('styles', function() {
 		    }).apply(this, arguments);
 			this.emit('end');
 		}))
+		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(prefix({
 			browsers: ['last 3 versions'],
 		}))
-		.pipe(csscomb())
-		.pipe(rename('main.css'))
-		.pipe(gulp.dest('css/'))
-		.pipe(uglifycss({
-			'uglyComments': true
-		}))
+		.pipe(cleancss())
 		.pipe(rename('main.min.css'))
+		.pipe(sourcemaps.write('../css/maps/'))
 		.pipe(gulp.dest('css/'));
+});
+
+// Images Task
+// Optimizes images
+gulp.task('images', function() {
+	gulp.src('src/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest('img/'));
 });
 
 // Deploy Task
@@ -88,22 +86,31 @@ gulp.task( 'deploy', function () {
 // Watches files and runs other tasks when changes are detected
 gulp.task('watch', function() {
 	// Watch main.js and run the Scripts Task if a change is detected
-	gulp.watch('js/main.js', ['scripts']);
+	watch('js/main.js', function() {
+		gulp.start('scripts');
+	});
 	// Run the Deploy Task if new JavaScript is minified into main.min.js
-	gulp.watch('js/main.min.js', ['deploy']);
+	watch('js/main.min.js', function() {
+		gulp.start('deploy');
+	});
 
 	// Watch the src directory and run the Images Task if a change is detected
-	gulp.watch('src/**/*', ['images']);
+	watch('src/*', function() {
+		gulp.start('images');
+	});
 	// Run the Deploy Task if new images are optimized and copied to the img directory
-	gulp.watch('img/*', ['deploy']);
+	watch('img/*', function() {
+		gulp.start('deploy');
+	});
 
 	// Watch Sass files and run the Styles Task if a change is detected
-	gulp.watch('scss/**/*.scss', ['styles']);
+	watch('scss/**/*.scss', function() {
+		gulp.start('styles');
+	});
 	// Run the Deploy Task if new CSS is written to main.min.css
-	gulp.watch('css/main.min.css', ['deploy']);
-
-	// Run the Deploy Task if changes are detected in any PHP file
-	gulp.watch(['*.php', 'page-templates/*.php', 'lib/bones.php'], ['deploy']);
+	watch('css/main.min.css', function() {
+		gulp.start('deploy');
+	});
 });
 
 gulp.task('default', ['scripts', 'styles', 'watch']);

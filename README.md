@@ -4,6 +4,11 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.4.0
+- Replaced `gulp.watch()` with [gulp-watch](https://www.npmjs.com/package/gulp-watch) plugin (fixes issue where adding images to `/src` fails to trigger the images task)
+- Implemented [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) for our Sass code
+- Updated bundled JSON file for interior page flexible content fields
+
 ### 2.3.0
 - Updated Bootstrap to 3.3.7
 - Fixed function prefixes
