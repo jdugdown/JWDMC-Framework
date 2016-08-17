@@ -94,6 +94,15 @@ gulp.task('watch', function() {
 		gulp.start('deploy');
 	});
 
+	// Watch Sass files and run the Styles Task if a change is detected
+	watch('scss/**/*.scss', function() {
+		gulp.start('styles');
+	});
+	// Run the Deploy Task if new CSS is written to main.min.css
+	watch('css/main.min.css', function() {
+		gulp.start('deploy');
+	});
+
 	// Watch the src directory and run the Images Task if a change is detected
 	watch('src/*', function() {
 		gulp.start('images');
@@ -103,12 +112,8 @@ gulp.task('watch', function() {
 		gulp.start('deploy');
 	});
 
-	// Watch Sass files and run the Styles Task if a change is detected
-	watch('scss/**/*.scss', function() {
-		gulp.start('styles');
-	});
-	// Run the Deploy Task if new CSS is written to main.min.css
-	watch('css/main.min.css', function() {
+	// Watch PHP files and run the Deploy Task if changes are detected
+	watch(['*.php', 'page-templates/*.php', 'lib/bones.php'], function() {
 		gulp.start('deploy');
 	});
 });
