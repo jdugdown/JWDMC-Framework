@@ -42,7 +42,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             }
                         ],
                         "min": "",
@@ -52,7 +52,7 @@
                         "key": "578008a4b453c",
                         "name": "two_column_content",
                         "label": "Two Column Content",
-                        "display": "table",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_578008adb453d",
@@ -70,7 +70,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             },
                             {
                                 "key": "field_578008bcb453e",
@@ -88,7 +88,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             }
                         ],
                         "min": "",
@@ -98,7 +98,7 @@
                         "key": "578008cab453f",
                         "name": "three_column_content",
                         "label": "Three Column Content",
-                        "display": "table",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_578008cab4540",
@@ -116,7 +116,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             },
                             {
                                 "key": "field_578008dab4542",
@@ -134,7 +134,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             },
                             {
                                 "key": "field_578008cab4541",
@@ -152,7 +152,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             }
                         ],
                         "min": "",
@@ -162,7 +162,7 @@
                         "key": "57801312fa40a",
                         "name": "four_column_content",
                         "label": "Four Column Content",
-                        "display": "table",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_57801312fa40b",
@@ -244,7 +244,7 @@
                         "key": "578011511e184",
                         "name": "onethird_twothirds",
                         "label": "One Third \/ Two Thirds",
-                        "display": "table",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_578011511e185",
@@ -262,7 +262,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             },
                             {
                                 "key": "field_578011511e187",
@@ -280,7 +280,7 @@
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
-                                "media_upload": ""
+                                "media_upload": 1
                             }
                         ],
                         "min": "",
@@ -290,7 +290,7 @@
                         "key": "5780117d1e188",
                         "name": "twothirds_onethird",
                         "label": "Two Thirds \/ One Third",
-                        "display": "table",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_5780117d1e189",
