@@ -1,7 +1,5 @@
-var gulp = require('gulp');
-
-// require plugins - npm install --save-dev gulp-uglify gulp-rename gulp-plumber gulp-util gulp-notify gulp-sass gulp-sourcemaps gulp-autoprefixer gulp-clean-css gulp-imagemin gulp-watch vinyl-ftp
-var uglify = require('gulp-uglify'),
+var gulp = require('gulp'),
+	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	plumber = require('gulp-plumber'),
 	gutil = require('gulp-util'),
@@ -14,8 +12,12 @@ var uglify = require('gulp-uglify'),
 	watch = require('gulp-watch'),
 	ftp = require('vinyl-ftp');
 
-// Scripts Task
-// Minifies JavaScript with UglifyJS
+/**
+ * Scripts Task
+ * Minifies JavaScript with UglifyJS
+ *
+ * Usage: `gulp scripts`
+ */
 gulp.task('scripts', function() {
 	gulp.src('js/main.js')
 		.pipe(uglify())
@@ -23,8 +25,12 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('js/'));
 });
 
-// Styles Task
-// Compiles Sass, then prefixes, and minifies the output before writing source maps
+/**
+ * Styles Task
+ * Compiles Sass, then prefixes, and minifies the output before writing source maps
+ *
+ * Usage: `gulp styles`
+ */
 gulp.task('styles', function() {
 	gulp.src('scss/**/*.scss')
 		.pipe(plumber(function(error) {
@@ -47,26 +53,23 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('css/'));
 });
 
-// Images Task
-// Optimizes images
+/**
+ * Images Task
+ * Optimizes images
+ *
+ * Usage: `gulp images`
+ */
 gulp.task('images', function() {
 	gulp.src('src/*')
 		.pipe(imagemin())
 		.pipe(gulp.dest('img/'));
 });
 
-// Deploy Task
-// Uploads newer files to remote server
-gulp.task( 'deploy', function () {
-	var conn = ftp.create( {
-		host:     'hostname',
-		user:     'username',
-		password: 'password',
-		parallel: 20,
-		log:      gutil.log
-	});
-
-	var globs = [
+// FTP configuration
+var host = 'hostname or ip';
+var user = process.env.FTP_USER;
+var pass = process.env.FTP_PASS;
+var globs = [
 	'css/**',
 	'img/**',
 	'js/**',
@@ -77,13 +80,39 @@ gulp.task( 'deploy', function () {
 	'lib/bones.php'
 	];
 
+// Helper function to create an FTP connection
+function getFtpConnection() {
+	return ftp.create( {
+		host:     host,
+		user:     user,
+		password: pass,
+		parallel: 20,
+		log:      gutil.log,
+	});
+}
+
+/**
+ * Deploy Task
+ * Upload changed files to remote server
+ *
+ * Usage: `FTP_USER=username FTP_PASS=password gulp deploy`
+ */
+gulp.task( 'deploy', function () {
+	var conn = getFtpConnection();
+
+	var remoteFolder = '/path/to/remote/folder';
+
 	gulp.src(globs, { base: '.', buffer: false })
-		.pipe(conn.newer('/path/to/remote/folder')) // only upload newer files!
-		.pipe(conn.dest('/path/to/remote/folder'));
+		.pipe(conn.newer( remoteFolder )) // only upload newer files!
+		.pipe(conn.dest( remoteFolder ));
 });
 
-// Watch Task
-// Watches files and runs other tasks when changes are detected
+/**
+ * Watch Task
+ * Watches files and runs other tasks when changes are detected
+ *
+ * Usage: `FTP_USER=username FTP_PASS=password gulp watch`
+ */
 gulp.task('watch', function() {
 	// Watch main.js and run the Scripts Task if a change is detected
 	watch('js/main.js', function() {
@@ -117,5 +146,3 @@ gulp.task('watch', function() {
 		gulp.start('deploy');
 	});
 });
-
-gulp.task('default', ['scripts', 'styles', 'watch']);
