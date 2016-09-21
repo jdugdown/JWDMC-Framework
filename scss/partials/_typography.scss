@@ -33,9 +33,18 @@ p + h3 {
 	margin-top: 25px;
 }
 
-p + h4,
-p + h5 {
-	margin-top: 20px;
+p,
+ul,
+ol {
+	+ h2,
+	+ h3 {
+		margin-top: 25px;
+	}
+
+	+ h4,
+	+ h5 {
+		margin-top: 20px;
+	}
 }
 
 p {

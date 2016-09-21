@@ -51,15 +51,30 @@ img {
 	}
 }
 
-.container .row.no-gutters {
-	margin-left: 0;
-	margin-right: 0;
-}
+.container,
+.container-fluid {
+	.row {
+		&.row-no-gutters {
+			margin-left: 0;
+			margin-right: 0;
 
-.row.no-gutters [class^="col-"],
-.row.no-gutters [class*="col-"] {
-	padding-right: 0;
-	padding-left: 0;
+			[class*="col-"] {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		&.row-centered {
+			text-align: center;
+			font-size: 0;
+
+			[class*="col-"] {
+				float: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+		}
+	}
 }
 
 .col-xs-5ths,
