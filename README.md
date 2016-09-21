@@ -4,6 +4,11 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.5.0
+- We now include `package.json` and `gulpfile.js` in deployment
+- New deployment and watch tasks to avoid publishing FTP info
+- Added `.row-centered` styles for centering Bootstrap columns horizontally
+
 ### 2.4.2
 - Update ACF Pro to v5.4.2
 
