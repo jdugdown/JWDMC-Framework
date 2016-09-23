@@ -1,6 +1,6 @@
 {
-  "name": "JWDMC Framework",
-  "version": "2.5.0",
+  "name": "jwdmc-framework",
+  "version": "2.5.1",
   "description": "Framework for JWDMC projects",
   "main": "gulpfile.js",
   "scripts": {

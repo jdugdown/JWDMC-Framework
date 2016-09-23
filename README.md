@@ -4,6 +4,9 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.5.1
+- Fix error in `package.json`
+
 ### 2.5.0
 - We now include `package.json` and `gulpfile.js` in deployment
 - New deployment and watch tasks to avoid publishing FTP info

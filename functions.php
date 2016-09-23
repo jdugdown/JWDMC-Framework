@@ -397,7 +397,7 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'jwdmc-style',
 			get_stylesheet_directory_uri() . '/css/main.min.css',
 			array(),
-			'2.4.2',
+			'2.5.1',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 	}
@@ -427,7 +427,7 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/js/main.min.js',
 			array('jquery'),
-			'2.4.2',
+			'2.5.1',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}
