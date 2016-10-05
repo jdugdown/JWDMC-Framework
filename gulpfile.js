@@ -12,6 +12,9 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	ftp = require('vinyl-ftp');
 
+var gulpftp = require('./gulpconfig.js');
+
+
 /**
  * Scripts Task
  * Minifies JavaScript with UglifyJS
@@ -24,6 +27,7 @@ gulp.task('scripts', function() {
 		.pipe(rename('main.min.js'))
 		.pipe(gulp.dest('js/'));
 });
+
 
 /**
  * Styles Task
@@ -53,6 +57,7 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('css/'));
 });
 
+
 /**
  * Images Task
  * Optimizes images
@@ -65,53 +70,51 @@ gulp.task('images', function() {
 		.pipe(gulp.dest('img/'));
 });
 
-// FTP configuration
-var host = 'hostname or ip';
-var user = process.env.FTP_USER;
-var pass = process.env.FTP_PASS;
-var globs = [
-	'css/**',
-	'img/**',
-	'js/**',
-	'lib/**',
-	'scss/**',
-	'*.php',
-	'page-templates/*.php',
-	'lib/bones.php'
-	];
-
-// Helper function to create an FTP connection
-function getFtpConnection() {
-	return ftp.create( {
-		host:     host,
-		user:     user,
-		password: pass,
-		parallel: 20,
-		log:      gutil.log,
-	});
-}
 
 /**
  * Deploy Task
  * Upload changed files to remote server
  *
- * Usage: `FTP_USER=username FTP_PASS=password gulp deploy`
+ * Usage: `gulp deploy`
  */
 gulp.task( 'deploy', function () {
-	var conn = getFtpConnection();
+	var conn = ftp.create({
+		host:     gulpftp.config.host,
+		user:     gulpftp.config.user,
+		password: gulpftp.config.pass,
+		parallel: 20,
+		log:      gutil.log,
+	});
 
-	var remoteFolder = '/path/to/remote/folder';
+	var globs = [
+		'**/*',
+		'*',
+		'!node_modules',
+		'!node_modules/**',
+		'!src',
+		'!src/**',
+		'!gulpconfig.js',
+		'!.git',
+		'!.git/**',
+		'!.gitignore',
+		'!.sass-cache',
+		'!.sass-cache/**',
+		'!.ftpconfig',
+		'!sftp-config.json',
+		'!ftpsync.settings',
+	];
 
 	gulp.src(globs, { base: '.', buffer: false })
-		.pipe(conn.newer( remoteFolder )) // only upload newer files!
-		.pipe(conn.dest( remoteFolder ));
+		.pipe(conn.newer( gulpftp.config.path )) // only upload newer files!
+		.pipe(conn.dest( gulpftp.config.path ));
 });
+
 
 /**
  * Watch Task
  * Watches files and runs other tasks when changes are detected
  *
- * Usage: `FTP_USER=username FTP_PASS=password gulp watch`
+ * Usage: `gulp watch`
  */
 gulp.task('watch', function() {
 	// Watch main.js and run the Scripts Task if a change is detected
