@@ -55,12 +55,12 @@ img {
 .container-fluid {
 	.row {
 		&.row-no-gutters {
-			margin-left: 0;
 			margin-right: 0;
+			margin-left: 0;
 
 			[class*="col-"] {
-				padding-left: 0;
 				padding-right: 0;
+				padding-left: 0;
 			}
 		}
 
@@ -73,6 +73,15 @@ img {
 				display: inline-block;
 				font-size: 16px;
 			}
+		}
+	}
+}
+
+.container-fluid {
+	.row {
+		&.row-no-gutters {
+			margin-right: -15px;
+			margin-left: -15px;
 		}
 	}
 }
@@ -91,6 +100,7 @@ img {
 .col-xs-5ths {
 	width: 20%;
 }
+
 @include media-query(min-sm) {
 	.col-sm-5ths {
 		width: 20%;

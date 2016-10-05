@@ -117,13 +117,13 @@ Template Name: Interior Page
 
 												<?php while ( have_rows('buttons') ) : the_row(); ?>
 													<a class="btn btn-primary" href="<?php the_sub_field('button_link'); ?>" <?php if ( get_sub_field('new_tab') ) : echo 'target="_blank"'; endif; ?>><?php the_sub_field('button_text'); ?></a>
-													<?php endwhile; ?>
-												</div>
+												<?php endwhile; ?>
 											</div>
+										</div>
 
-										<?php endif; ?>
+									<?php endif; ?>
 
-									<?php endwhile; ?>
+								<?php endwhile; ?>
 							</div>
 						<?php endif; ?>
 
