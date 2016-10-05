@@ -4,6 +4,10 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.6.0
+- New deployment and watch tasks (again)
+- Minor formatting fixes
+
 ### 2.5.1
 - Fix error in `package.json`
 
