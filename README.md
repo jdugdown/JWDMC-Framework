@@ -4,6 +4,12 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.7.0
+- Added [ACF Content Analysis for Yoast SEO](https://wordpress.org/plugins/acf-content-analysis-for-yoast-seo/) to recommended plugins
+- Added `deploystyles` Gulp task - a deploy task that only uploads Sass and CSS files when Sass changes are made
+- Fix auto-scroll when clicking Bootstrap collapse toggles
+- Minor Sass fixes
+
 ### 2.6.0
 - New deployment and watch tasks (again)
 - Minor formatting fixes
