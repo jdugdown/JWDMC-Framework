@@ -88,6 +88,11 @@ function jwdmc_register_required_plugins() {
 			'required' => false,
 			),
 		array(
+			'name'     => 'ACF Content Analysis for Yoast SEO',
+			'slug'     => 'acf-content-analysis-for-yoast-seo',
+			'required' => false,
+		),
+		array(
 			'name'     => 'Wordfence Security',
 			'slug'     => 'wordfence',
 			'required' => false,
@@ -369,9 +374,9 @@ if( !function_exists("theme_styles") ) {
 
 		// FontAwesome
 		wp_register_style( 'fontawesome',
-			'//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
 			array(),
-			'4.6.3',
+			'4.7.0',
 			'all' );
 		wp_enqueue_style( 'fontawesome' );
 
@@ -397,7 +402,7 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'jwdmc-style',
 			get_stylesheet_directory_uri() . '/css/main.min.css',
 			array(),
-			'2.6.0',
+			'2.7.0',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 	}
@@ -427,7 +432,7 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/js/main.min.js',
 			array('jquery'),
-			'2.6.0',
+			'2.7.0',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}
