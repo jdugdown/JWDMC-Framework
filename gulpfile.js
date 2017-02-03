@@ -111,6 +111,36 @@ gulp.task( 'deploy', function () {
 
 
 /**
+ * Deploy Styles Task
+ * Upload Sass and CSS files to remote server
+ *
+ * Usage: `gulp deploystyles`
+ */
+gulp.task( 'deploystyles', function () {
+	var conn = ftp.create({
+		host:     gulpftp.config.host,
+		user:     gulpftp.config.user,
+		password: gulpftp.config.pass,
+		parallel: 20,
+		log:      gutil.log,
+		secure:   true,
+		secureOptions: {
+			rejectUnauthorized: false
+		}
+	});
+
+	var globs = [
+		'scss/**/*',
+		'css/**/*',
+	];
+
+	gulp.src(globs, { base: '.', buffer: false })
+		.pipe(conn.newer( gulpftp.config.path )) // only upload newer files!
+		.pipe(conn.dest( gulpftp.config.path ));
+});
+
+
+/**
  * Watch Task
  * Watches files and runs other tasks when changes are detected
  *
@@ -130,9 +160,9 @@ gulp.task('watch', function() {
 	watch('scss/**/*.scss', function() {
 		gulp.start('styles');
 	});
-	// Run the Deploy Task if new CSS is written to main.min.css
+	// Run the Deploy Styles Task if new CSS is written to main.min.css
 	watch('css/main.min.css', function() {
-		gulp.start('deploy');
+		gulp.start('deploystyles');
 	});
 
 	// Watch the src directory and run the Images Task if a change is detected
