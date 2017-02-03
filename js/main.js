@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
 	$('.dropdown-toggle').dropdown();
 
 	// Smooth scroll to element by ID
-	$('a[href^="#"]:not(a[href="#"])').click(function(e) {
+	$('a[href^="#"]:not(a[href="#"]):not(a[data-toggle="collapse"])').click(function(e) {
 		e.preventDefault();
 
 		var target = this.hash;
