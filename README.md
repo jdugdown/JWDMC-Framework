@@ -7,7 +7,8 @@ Starter Theme for JWDMC Websites
 ### 2.8.0
 - Added a lightbox that automatically triggers for WordPress galleries
 - Added a system font stack Sass variable
-- Update ACF Pro to v5.5.10
+- Updated ACF Pro to v5.5.10
+- Updated dependencies
 
 ### 2.7.0
 - Added [ACF Content Analysis for Yoast SEO](https://wordpress.org/plugins/acf-content-analysis-for-yoast-seo/) to recommended plugins
