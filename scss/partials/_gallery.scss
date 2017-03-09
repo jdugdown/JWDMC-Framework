@@ -120,3 +120,18 @@
 		}
 	}
 }
+
+.blueimp-gallery {
+	> .indicator {
+		> li {
+			width: 40px;
+			height: 30px;
+			border-radius: 0;
+
+			@include media-query(min-md) {
+				width: 60px;
+				height: 45px;
+			}
+		}
+	}
+}

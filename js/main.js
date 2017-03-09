@@ -35,3 +35,21 @@ jQuery(document).ready(function($) {
 	});
 
 });
+
+// blueimp lightbox gallery
+var galleries = document.getElementsByClassName('gallery');
+for(var i = 0; i < galleries.length; i++) {
+	var gallery = galleries[i];
+	gallery.onclick = function(event) {
+		event = event || window.event;
+		var target = event.target || event.srcElement,
+		link = target.src ? target.parentNode : target,
+		options = {
+			index: link,
+			event: event,
+			stretchImages: false,
+		},
+		links = this.getElementsByTagName('a');
+		blueimp.Gallery(links, options);
+	};
+}
