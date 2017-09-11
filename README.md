@@ -4,6 +4,13 @@ Starter Theme for JWDMC Websites
 
 
 ## Changelog
+### 2.9.0
+- Updated ACF Pro
+- Added theme options page by default
+- Updated TGM
+- Changed formatting of page templates
+- Added Material Design Icons
+
 ### 2.8.0
 - Added a lightbox that automatically triggers for WordPress galleries
 - Added a system font stack Sass variable
