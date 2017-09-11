@@ -32,7 +32,7 @@
                                 "name": "content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": "",
@@ -60,7 +60,7 @@
                                 "name": "left_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 50,
@@ -78,7 +78,7 @@
                                 "name": "right_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 50,
@@ -106,7 +106,7 @@
                                 "name": "left_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 33,
@@ -124,7 +124,7 @@
                                 "name": "middle_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 33,
@@ -142,7 +142,7 @@
                                 "name": "right_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 33,
@@ -252,7 +252,7 @@
                                 "name": "left_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 33,
@@ -270,7 +270,7 @@
                                 "name": "right_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": 66,
@@ -298,7 +298,7 @@
                                 "name": "left_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": 66,
@@ -316,7 +316,7 @@
                                 "name": "right_content",
                                 "type": "wysiwyg",
                                 "instructions": "",
-                                "required": 1,
+                                "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": 33,
@@ -344,7 +344,7 @@
                                 "name": "gallery_title",
                                 "type": "text",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": "",
@@ -365,7 +365,7 @@
                                 "name": "columns",
                                 "type": "select",
                                 "instructions": "Choose the number of columns your gallery should have on the front end.",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": "",
@@ -399,7 +399,7 @@
                                 "name": "gallery",
                                 "type": "gallery",
                                 "instructions": "",
-                                "required": "",
+                                "required": 0,
                                 "conditional_logic": "",
                                 "wrapper": {
                                     "width": "",

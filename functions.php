@@ -16,7 +16,76 @@ require_once('lib/bones.php'); // don't touch this
 
 
 // TGM Plugin Activation
-require_once('lib/tgm-plugin-activation.php'); // this one too
+require_once get_template_directory() . '/lib/tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'jwdmc_register_required_plugins' );
+function jwdmc_register_required_plugins() {
+	$plugins = array(
+		array(
+			'name'     => 'Advanced Custom Fields Pro',
+			'slug'     => 'advanced-custom-fields-pro',
+			'source'   => get_template_directory() . '/lib/plugins/advanced-custom-fields-pro.zip',
+			'required' => false,
+			),
+		array(
+			'name'     => 'Gravity Forms',
+			'slug'     => 'gravityforms',
+			'source'   => get_template_directory() . '/lib/plugins/gravityforms.zip',
+			'required' => false,
+			),
+		array(
+			'name'     => 'ACF Content Analysis for Yoast SEO',
+			'slug'     => 'acf-content-analysis-for-yoast-seo',
+			'required' => false,
+		),
+		array(
+			'name'     => 'Wordfence Security',
+			'slug'     => 'wordfence',
+			'required' => false,
+			),
+		array(
+			'name'     => 'Regenerate Thumbnails',
+			'slug'     => 'regenerate-thumbnails',
+			'required' => false,
+			),
+		array(
+			'name'     => 'FakerPress',
+			'slug'     => 'fakerpress',
+			'required' => false,
+			),
+		array(
+			'name'     => 'Simple 301 Redirects',
+			'slug'     => 'simple-301-redirects',
+			'required' => false,
+			),
+		array(
+			'name'     => 'WordPress SEO by Yoast',
+			'slug'     => 'wordpress-seo',
+			'required' => false,
+			),
+		array(
+			'name'     => 'WooCommerce - excelling eCommerce',
+			'slug'     => 'woocommerce',
+			'required' => false,
+			),
+
+	);
+
+	$config = array(
+		'id'           => 'jwdmc',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => false,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+
+	tgmpa( $plugins, $config );
+}
 
 
 // Set content width
@@ -75,89 +144,6 @@ function jwdmc_register_sidebars() {
 		'after_title'   => '</h4>',
 		));
 } // don't touch this bracket!
-
-
-// Register the required plugins for this theme.
-function jwdmc_register_required_plugins() {
-
-	$plugins = array(
-		array(
-			'name'     => 'Advanced Custom Fields Pro',
-			'slug'     => 'advanced-custom-fields-pro',
-			'source'   => get_stylesheet_directory() . '/lib/plugins/advanced-custom-fields-pro.zip',
-			'required' => false,
-			),
-		array(
-			'name'     => 'ACF Content Analysis for Yoast SEO',
-			'slug'     => 'acf-content-analysis-for-yoast-seo',
-			'required' => false,
-		),
-		array(
-			'name'     => 'Wordfence Security',
-			'slug'     => 'wordfence',
-			'required' => false,
-			),
-		array(
-			'name'     => 'Regenerate Thumbnails',
-			'slug'     => 'regenerate-thumbnails',
-			'required' => false,
-			),
-		array(
-			'name'     => 'FakerPress',
-			'slug'     => 'fakerpress',
-			'required' => false,
-			),
-		array(
-			'name'     => 'Simple 301 Redirects',
-			'slug'     => 'simple-301-redirects',
-			'required' => false,
-			),
-		array(
-			'name'     => 'WordPress SEO by Yoast',
-			'slug'     => 'wordpress-seo',
-			'required' => false,
-			),
-		array(
-			'name'     => 'WooCommerce - excelling eCommerce',
-			'slug'     => 'woocommerce',
-			'required' => false,
-			),
-	);
-
-	$config = array(
-		'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'has_notices'  => false,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
-		'strings'      => array(
-			'page_title'                      => __( 'Install Recommended Plugins', 'tgmpa' ),
-			'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-			'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-			'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-			'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-			'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-			'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-			'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-			'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-			'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-			'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-			'return'                          => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
-			'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-		)
-	);
-
-	tgmpa( $plugins, $config );
-
-}
-add_action( 'tgmpa_register', 'jwdmc_register_required_plugins' );
 
 
 // Comment Layout
@@ -380,6 +366,14 @@ if( !function_exists("theme_styles") ) {
 			'all' );
 		wp_enqueue_style( 'fontawesome' );
 
+		// Material Design Icons
+		wp_register_style( 'material-design-icons',
+			'//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css',
+			array(),
+			'2.0.46',
+			'all' );
+		wp_enqueue_style( 'material-design-icons' );
+
 		if ( is_front_page() ) {
 			// Slick
 			wp_register_style( 'slick',
@@ -410,7 +404,7 @@ if( !function_exists("theme_styles") ) {
 		wp_register_style( 'jwdmc-style',
 			get_stylesheet_directory_uri() . '/css/main.min.css',
 			array(),
-			'2.8.0',
+			'2.9.0',
 			'all' );
 		wp_enqueue_style( 'jwdmc-style' );
 	}
@@ -447,7 +441,7 @@ if( !function_exists( "theme_js" ) ) {
 		wp_register_script( 'jwdmc-scripts',
 			get_template_directory_uri() . '/js/main.min.js',
 			array('jquery'),
-			'2.8.0',
+			'2.9.0',
 			true );
 		wp_enqueue_script('jwdmc-scripts');
 	}
@@ -553,5 +547,10 @@ function jwdmc_form_previous_button( $button, $form ) {
 }
 add_filter( 'gform_previous_button', 'jwdmc_form_previous_button', 10, 5 );
 
+
+// Theme options
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
 
 ?>
